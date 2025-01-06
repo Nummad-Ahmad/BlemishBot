@@ -300,9 +300,9 @@
     padding: 40px;
     padding-top: 0px;
     box-sizing: border-box;
-    /* justify-items: center; */
     gap: 10px;
   transform: translateY(100px);
+  z-index: 0px;
 }
  
 .advantagesdiv.animate {

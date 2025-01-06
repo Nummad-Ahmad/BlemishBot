@@ -133,7 +133,7 @@ export default function HomePage() {
                     Why choose us?
                 </p>
                 <div className={`${style.advantagesdiv} ${isAnimated ? style.animate : ''}`}>
-                    <div className={style.advantage} style={{ background: 'rgb(212, 232, 255)' }}>
+                    <div className={style.advantage} style={{ background: 'rgb(212, 232, 255)'}}>
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
                                 <FaSackDollar size={20} color='rgb(212, 232, 255)' />

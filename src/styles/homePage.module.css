@@ -14,7 +14,7 @@
 
 .acnecon {
     margin: 0px auto;
-    width: 80%;
+    width: 90%;
     height: 500px;
     padding: 10px;
     box-sizing: border-box;
@@ -416,7 +416,6 @@
     .acnecon{
         grid-template-columns: repeat(2, 1fr); /* 3 columns of equal width */
         grid-template-rows: repeat(3, 1fr); /* 2 rows of equal height */
-        padding: ;
     }
     .acnebox{
         width: 100%;

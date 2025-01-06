@@ -189,7 +189,7 @@ export default function HomePage() {
                         </p>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <h1>01</h1>
-                            <CiCircleCheck size={54} style={{ color: "#AA9FEE" }} />
+                            <CiCircleCheck size={54} style={{ color: 'rgb(0, 51, 102' }} />
                         </div>
                     </div>
                     <div className={`${style.advbox} ${style.adv}`}>
@@ -201,7 +201,7 @@ export default function HomePage() {
                         </p>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <h1>01</h1>
-                            <CiCircleCheck size={54} style={{ color: "#AA9FEE" }} />
+                            <CiCircleCheck size={54} style={{ color: 'rgb(0, 51, 102' }} />
                         </div>
                     </div>
                     <div className={`${style.advbox} ${style.adv}`}>
@@ -213,7 +213,7 @@ export default function HomePage() {
                         </p>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <h1>01</h1>
-                            <CiCircleCheck size={54} style={{ color: "#AA9FEE" }} />
+                            <CiCircleCheck size={54} style={{ color: 'rgb(0, 51, 102' }} />
                         </div>
                     </div>
                     <div className={`${style.advbox} ${style.adv}`}>
@@ -225,7 +225,7 @@ export default function HomePage() {
                         </p>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <h1>01</h1>
-                            <CiCircleCheck size={54} style={{ color: "#AA9FEE" }} />
+                            <CiCircleCheck size={54} style={{ color: 'rgb(0, 51, 102' }} />
                         </div>
                     </div>
                 </div>

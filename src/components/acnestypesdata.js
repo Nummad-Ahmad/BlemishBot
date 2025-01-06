@@ -40,7 +40,7 @@ export default function AcneComponent({ img, title, desc, index }) {
     //     }];
 
     return (
-        <div onClick={() => { navigate('/individualDisease') }} className={style.advantage} style={{ background: 'rgb(212, 232, 255)', cursor: 'pointer' }}>
+        <div className={style.advantage} style={{ background: 'rgb(212, 232, 255)', cursor: 'pointer' }}>
             <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginLeft: '20px' }}>
                 <div className={style.icondiv}>
                     <p style={{ color: 'white', textAlign: 'center', fontSize: '20px' }}>{index}</p>

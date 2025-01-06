@@ -1,0 +1,317 @@
+.about {
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.contentContainer{
+    margin-top: 70px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+}
+.container {
+
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0px;
+    box-sizing: border-box;
+}
+
+.herosection {
+    padding: 0px 40px;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.heroheadingdiv {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+
+.heroheading {
+    margin: 0px;
+    font-family: sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.herodesc {
+    margin-top: 20px;
+    font-size: 16px;
+    font-family: Tahoma, sans-serif;
+    line-height: 1.4;
+}
+
+/* Apply the animation to an element */
+.fadein {
+    animation: fade 1s ease-in-out;
+    /* 2 seconds duration, with ease-in-out timing */
+}
+
+.heroimg {
+    width: 35%;
+    min-width: 350px;
+}
+
+.ouraimdiv {
+    /* height: 300px; */
+    background-color: rgb(0, 115, 230);
+    margin: 0px;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 50px;
+    padding-bottom: 50px;
+}
+
+.aimdesc {
+    margin: 0px 100px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+}
+
+.conditionallyhiddentext {
+    display: inline;
+}
+
+.services {
+    margin-top: 70px;
+    font-size: 40px;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: 600;
+}
+
+.descriptioncontainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 3 columns, each taking 1 fraction of space */
+    row-gap: 40px;
+    column-gap: 0px;
+    margin: 0px auto;
+    justify-items: center;
+    transform: translateY(100px);
+}
+
+.animate {
+    animation: moveUp 1s ease-out forwards;
+}
+
+.advantage {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.icondiv {
+    height: 25px;
+    width: 25px;
+    background-color: #003366;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whiteline {
+    height: 2px;
+    background-color: white;
+    width: 100%;
+}
+
+.whyitmattersdiv {
+    margin-bottom: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.matters {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    transform: translateX(100%);
+    /* Start off-screen to the right */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.mattercontainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.matterimg {
+    width: 400px;
+    height: 300px;
+}
+
+.matterstextdiv {
+    width: 400px;
+}
+
+.matterstext {
+    margin: 0px;
+    font-size: 16px;
+}
+
+.slidein {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.slideout {
+    animation: slideOut 0.5s ease forwards;
+}
+
+
+@media(max-width: 1300px) {
+    .descriptioncontainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 1000px) {
+    .heroheading {
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 900px) {
+    .matterstext {
+        display: none;
+    }
+
+    .heroheading {
+        font-size: 25px;
+    }
+
+    .herosection {
+        padding: 0px 20px;
+    }
+
+    .aimdesc {
+        margin: 0px;
+    }
+
+    .whyitmattersdiv {
+        margin-bottom: 50px;
+    }
+}
+
+@media(max-width: 800px) {
+    .heroimg {
+        display: none;
+    }
+
+    .heroheadingdiv {
+        width: 100%;
+        padding: 5px 50px;
+    }
+
+    .heroheading {
+        margin-bottom: 20px;
+    }
+
+    .conditionallyhiddentext {
+        display: none;
+    }
+
+    .aimdesc {
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 600px) {
+    .matters {
+        width: 80%;
+    }
+
+    .matterimg {
+        width: 80%;
+    }
+
+    .descriptioncontainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+
+/* Slide-in animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+        /* Start from the right */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        /* End at default position */
+    }
+}
+
+/* Slide-out animation */
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+        /* Start at default position */
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+        /* Move off-screen to the left */
+    }
+}
+
+
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        /* Fully transparent */
+    }
+
+    100% {
+        opacity: 1;
+        /* Fully opaque */
+    }
+}
+
+
+@keyframes moveUp {
+    from {
+        transform: translateY(300px);
+        /* Start 500px down */
+        opacity: 0;
+        /* Start invisible */
+    }
+
+    to {
+        transform: translateY(0);
+        /* Move to original position */
+        opacity: 1;
+        /* Fully visible */
+    }
+}

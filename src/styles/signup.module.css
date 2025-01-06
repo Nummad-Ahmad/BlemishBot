@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Varela+Round&display=swap');
+
+.main{
+  display: flex;
+}
+
+.WelcomeContainer{
+  background-color: #9588E8 ;
+  height: 100vh;
+  width: 45vw;
+  position: relative;
+  z-index: 99;
+  clip-path: circle(92.0% at 0 49%);
+  background: repeating-radial-gradient(circle, transparent, transparent 5.3px, #3D52A3 5.3px, #3D52A3 6.8px), repeating-radial-gradient(circle, transparent, transparent 5.3px, #3D52A3 5.3px, #3D52A3 6.8px), #465dbb;
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px, 30px 15px;
+  background-color: #8072e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.HeadingContainer{
+  width: 90%;
+  text-align: center;
+  /* position: relative; */
+}
+.logo{
+  width: 70%;
+}
+.secondHeading {
+  color: white; 
+  font-size: 1.3rem; 
+  font-weight:500; 
+
+}
+.robot2{
+  width: 25%;
+  position: absolute;
+  left: 2%;
+  bottom: 3%;
+}
+.outerbox{
+  display: flex;
+  flex-direction: column;
+}
+
+.signupContainer{
+  background-color: white;
+  /* height: 100vh; */
+  width: 55vw;
+  /* border-radius: 5rem 0 0 5rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+}
+
+.FormContainer{
+  background-color: white;
+  width: 70%;
+  min-height: 55%;
+}
+
+.inputContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.input{
+  padding-bottom: 0.3rem;
+  border: none;
+  border-bottom: 1px solid rgb(193, 188, 188);
+  font-size: 1rem;
+  transition: background-color 5000s ease-in-out;
+}
+
+.input:focus{
+  /* border: none; */
+  outline: none;
+}
+
+.input:-webkit-autofill{
+  background-color: transparent !important;
+}
+
+.input::placeholder{
+  font-size: 1rem;
+  padding-bottom: 0.3rem;
+}
+
+.checkboxContainer{
+  margin-right: 0.5rem;
+  cursor: pointer;
+ 
+}
+
+.checkboxWrapper{
+  margin-top: 3rem;
+  display: flex;
+
+  height: 50px;
+  align-items: center;
+  padding: 0;
+  transform: translateY(-100%);
+
+}
+.label{
+
+  transform: translateY(-130%);
+}
+.checkboxContainer:checked{
+  background-color: #9588E8;
+  
+}
+
+
+.signupButton{
+  background-color: #3D52A3;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 3rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 50px;
+  transform: translateY(-100%);
+  cursor: pointer;
+}
+
+.thirdpartysignup{
+  background-color: white;
+  width: 70%;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  transform: translateY(-28%);
+
+}
+
+.LineText{
+  color: grey;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.LineText::before,
+.LineText::after{
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: rgb(184, 179, 179);
+  margin: 0 0.8rem;
+}
+
+.icons{
+  display: flex;
+  gap: 20px;
+}
+
+
+.fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.fa-facebook-square{
+  color: #1c40ad;
+}
+
+.fa-twitter{
+  color: #285AEB;
+}
+
+.fa-linkedin{
+  color: #173cae;
+}
+
+@media (max-width: 1208px ){
+  .WelcomeContainer{
+    clip-path: circle(85.0% at 0 49%);
+  }
+}
+
+@media (max-width: 1099px ){
+  
+  .WelcomeContainer{
+    clip-path: circle(79.0% at 0 49%);
+  }
+}
+@media (max-width: 897px ){
+  .WelcomeContainer{
+    clip-path: circle(69.0% at 0 49%);
+  }
+}
+
+@media (max-width: 798px ){
+  .WelcomeContainer{
+    display: none;
+  }
+  .signupContainer{
+    width: 100vw;
+    margin-top: 5rem;
+  }
+}
+@media (max-width: 489px ){
+  .label{
+
+    transform: translateY(-60%);
+  }
+}
+
+

@@ -1,0 +1,144 @@
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: space-between;
+    background-color: rgb(156, 212, 255);
+    box-sizing: border-box;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.textContainer {
+    display: flex;
+    width: 50%;
+    margin: auto auto;
+    justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.formDiv {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 60%;
+    min-width: 330px;
+    gap: 15px;
+    background-color: #F7F7F7;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: none;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    align-items: center;
+}
+
+input {
+    border: 1px solid rgba(211, 211, 211, 1);
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+h2 {
+    margin: 0px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 23px;
+}
+
+.togglebuttonDiv {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border: 1px solid rgba(211, 211, 211, 1);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.toggleButtons {
+    padding: 10px;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.activeButton {
+    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6); 
+    padding: 10px;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.blueText {
+    margin: 5px 0px;
+    text-align: left;
+    color: rgb(26, 117, 215);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.button {
+    border: none;
+    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+@media (max-width: 920px) {
+    .img {
+        height: 75%;
+    }
+
+    .imageContainer {
+        width: 45%;
+    }
+
+    .textContainer {
+        width: 50%;
+    }
+
+    .formDiv {
+        border: none;
+        box-shadow: none;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    .imageContainer {
+        display: none;
+    }
+    .textContainer {
+        width: 100%;
+        background-color: rgb(156, 212, 255);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .formDiv{
+        margin: auto;
+    }
+}

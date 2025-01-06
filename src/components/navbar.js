@@ -1,0 +1,142 @@
+import style from '../styles/navbar.module.css';
+import { AiOutlineMenu } from "react-icons/ai";
+import { IoMdClose } from "react-icons/io";
+import { IoIosInformationCircleOutline } from "react-icons/io";
+import { VscTools } from "react-icons/vsc";
+import { MdOutlineLightbulb } from "react-icons/md";
+import { GiMedicines } from "react-icons/gi";
+import { useEffect, useState } from 'react';
+// import Logo1 from '../images/Logo1.svg';
+import logo from '../images/logoWhite.jpg';
+import { IoHomeOutline } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
+
+export default function () {
+    const navigate = useNavigate();
+    const [index, setIndex] = useState(() => {
+        // Retrieve the initial value from localStorage
+        return localStorage.getItem("storedValue") || 0;
+      });
+    const [clicked, setClicked] = useState(false);
+    function updateIndex(value){
+        setIndex(value);
+        localStorage.setItem("storedValue", value);
+    }
+    useEffect(() => {
+        const storedIndex = localStorage.getItem("storedValue");
+        if (storedIndex) {
+            setIndex(Number(storedIndex));
+        }
+    }, [index]);
+    return (
+        <div className={style.topnavbar}>
+            <span style={{ display: 'flex', alignItems: 'center' }}>
+                <img className={style.navbarlogo} height={60} src={logo}></img>
+                {/* <h3 className={style.h3}>WellnessWiz</h3> */}
+            </span>
+            <div className={style.btncontainer}>
+                <button className={`${index == 0 ? style.btnActive : style.btnInactive}`} onClick={()=> { updateIndex(0); navigate('/homepage');}}>
+                    Home
+                </button>
+                <button className={`${index == 1 ? style.btnActive : style.btnInactive}`} onClick={()=> { updateIndex(1); navigate('/about');}}>
+                    About
+                </button>
+                <button className={`${index == 3 ? style.btnActive : style.btnInactive}`} onClick={()=> {navigate('/working'); updateIndex(3)}}>
+                    How it works
+                </button>
+                <button className={`${index == 4 ? style.btnActive : style.btnInactive}`} onClick={()=> {navigate('/acnetypes'); updateIndex(4)}}>
+                    Acne Types
+                </button>
+                <button className={style.chatbtn} onClick={()=> {navigate('/chat'); updateIndex(5)}}>
+                    Chat
+                </button>
+            </div>
+            <div className={style.menu}>
+                <div onClick={() => { setClicked(true) }}>
+                    <AiOutlineMenu size={20} color='white' />
+                </div>
+            </div>
+            {
+                clicked &&
+                <div className={style.sidemenu}>
+                    <div style={{ cursor: 'pointer' }} onClick={() => { setClicked(false) }}>
+                        <IoMdClose size={20} color='black' />
+                    </div>
+                    <ul>
+                        <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigate('/homepage')}>
+                            <IoHomeOutline size={20} color='black' />
+                            <li><a>Home</a></li>
+                        </div>
+                        <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigate('/about')}>
+                            <IoIosInformationCircleOutline size={20} color='black' />
+                            <li><a>About</a></li>
+                        </div>
+                        <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigate('/working ')}>
+                            <MdOutlineLightbulb size={20} color='black' />
+                            <li><a>How it works</a></li>
+                        </div>
+                        <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigate('/acnetypes')}>
+                            <GiMedicines size={20} color='black' />
+                            <li><a>Acne types</a></li>
+                        </div>
+                    </ul>
+                </div>
+            }
+        </div>
+    );
+}
+
+
+
+// import React, { useState } from 'react'
+// import styles from '../styles/landing.module.css'
+// import { CgMenuRight } from "react-icons/cg";
+// import { Link, useNavigate } from 'react-router-dom'
+// import logo from '../images/logo.jpg'
+// const Navbar = () => {
+//   const [sidebarOpen,setsidebar]=useState(false)
+//   const navigate=useNavigate()
+//   return (
+//     <>  
+//             <nav >
+//       <div><img src={logo} className={styles.logo}/></div>
+//       <div className={styles.navlinks}>
+//         <Link to=''>Home</Link>
+//         <Link to='/about'>About</Link>
+//         <Link to='/contact'>Contact Us</Link>
+//         <Link to='/services'>Services</Link>
+//         <Link to='/working'>How it works</Link>
+//         <Link to='/faqs'>FAQs</Link>
+//       </div>
+//       <div className={styles.buttoncon}>
+//       <div style={{ backgroundColor: 'white',borderRadius:"2rem" }}>
+//       <button className={styles.button} ><Link to='/login'>Login</Link></button>/
+//       <button className={styles.button} ><Link to='/signup'>SignUp</Link></button>
+//       </div>
+      
+//       </div>
+//       <CgMenuRight className={styles.menu} size={34} onClick={()=>{
+//         setsidebar(!sidebarOpen)
+//       }}/>
+//             </nav>
+//     <div className={styles.sidebar} style={{right:sidebarOpen?"0%":"-100%"}}>
+//         <Link to=''>Home</Link>
+//         <Link to='/contact'>Contact Us</Link>
+//         <Link to='/about'>About</Link>
+//         <Link to='/services'>Services</Link>
+//         <Link to='/working'>How it works</Link>
+//         <Link to='/faqs'>FAQs</Link>
+//       <div className={styles.buttoncon}>
+//       <div style={{ backgroundColor: 'white',borderRadius:"2rem" }}>
+//       <button className={styles.button} ><Link to='/login'>Login</Link></button>/
+//       <button className={styles.button}><Link to='/signup'>SignUp</Link></button>
+//       </div>
+//       </div>
+        
+//     </div>
+//     </>
+   
+//   )
+// }
+
+// export default Navbar

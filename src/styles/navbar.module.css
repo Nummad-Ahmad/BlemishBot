@@ -1,0 +1,147 @@
+.topnavbar{
+    min-height: 70px;
+    height: 12%;
+    max-height: 100px;
+    width: 100%;
+    /* background: -webkit-linear-gradient(right, #003366, #004080, #0059b3, #0073e6); */
+    /* background-color: #004080; */
+    background-color: rgb(61, 82, 163);
+    display: flex;
+    align-items: center;
+    padding: 0px 40px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.h3{
+    margin: 0px;
+    font-size: 30px;
+    font-weight:600;
+    font-family: cursive, serif;
+    color: black;
+}
+.navbarlogo{
+    margin: 0px;
+    padding-right: 10px;
+}
+.btncontainer{
+    display: flex;
+    gap: 10px;
+}
+.menu{
+    display: none;
+    margin-right: 20px;
+}
+.sidemenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    min-width: 200px;
+    width: 25%;
+    max-width: 300px;
+    height: 100%;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease-in-out; 
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 90;
+  }
+  .sidemenu ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+  .sidemenu ul li {
+    margin: 20px 0;
+  }
+  .sidemenu ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .sidemenu ul li a:hover {
+    text-decoration: none;
+  }
+  .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+  .sidemenu.show {
+    left: 0; 
+  }
+.chatbtn{
+    border: 1px solid white;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    /* color: #003366; */
+    color: rgb(61, 82, 163);
+    cursor: pointer;
+    font-weight: 650;
+}
+.chatbtn:hover{
+    color: white;
+    background-color: rgb(61, 82, 163);
+}
+.btnInactive{
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255, 0);
+    
+    font-size: 15px;
+}
+.btnActive{
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255, 0);
+    border-bottom: 2px solid white;
+    font-weight: 800;
+    font-size: 15px;
+}
+.btnInactive:hover{
+    /* border-bottom: 2px solid white; */
+    font-weight: 800;
+}
+
+@media(min-width: 801px){
+    .btncontainer{
+        display: flex;
+    }
+    .sidemenu{
+        display: none;
+    }
+}
+
+@media(max-width: 800px){
+    .btncontainer{
+        display: none;
+    }
+    .menu{
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 600px){
+    .topnavbar{
+        padding: 0px 20px;   
+    }
+    .h3{
+        display: none;
+    }
+    .btn{
+        display: none;
+    }
+}

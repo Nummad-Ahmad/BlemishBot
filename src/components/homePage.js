@@ -18,7 +18,6 @@ import { GrSecure } from "react-icons/gr";
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Footer from './footerComponent';
-import video from '../images/acneVideo.mp4';
 import { GoArrowUpRight } from 'react-icons/go';
 import { CiCircleCheck } from 'react-icons/ci';
 

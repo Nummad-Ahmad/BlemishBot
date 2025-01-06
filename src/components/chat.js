@@ -2,7 +2,7 @@ import style from '../styles/chat.module.css';
 import Navbar from "./navbar";
 import { useState } from 'react';
 import { IoMdCloudUpload } from "react-icons/io";
-
+import Footer from './footerComponent';
 export default function Chat() {
 
     const text = "Black heads are a mild type of acne that form when pores become clogged with oil and dead skin cells. Unlike other acne types, blackheads are open at the surface, giving them their characteristic dark appearance. They are common and typically painless but can persist without proper skincare.";
@@ -146,7 +146,7 @@ export default function Chat() {
                                 <div className={style.bottomSpace}>A</div>
                             </div>
                     }
-
+                    
                 </div>
             </div>
         </div>

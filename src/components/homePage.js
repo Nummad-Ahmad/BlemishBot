@@ -72,7 +72,7 @@ export default function HomePage() {
                     </div>
                     <img className={`${style.img} ${isAnimated1 ? style.animateImg : ''}`} src={ModelImage}></img>
                 </div>
-                <div className={style.chat}>
+                <div onClick={()=> navigate('/chat')} className={style.chat}>
                     <BsChatDots size={20} color='white' />
                 </div>
                 <p className={style.treatments}>

@@ -17,7 +17,7 @@
     height: calc(100vh - 70px);
     overflow-y: auto;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 13px; 
     height: 12px; 
 }
@@ -34,7 +34,7 @@
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
-}
+} */
 
 .singleHistoryContainer {
     width: 100%;

@@ -193,44 +193,44 @@ export default function HomePage() {
                         </div>
                     </div>
                     <div className={`${style.advbox} ${style.adv}`}>
-                        <h2>Accurate Diagnosis</h2>
-                        <p>
-                            The application uses advanced deep learning models to classify facial
-                            acne with precision, helping users identify specific acne types such as
-                            blackheads, whiteheads, or pustules.
-                        </p>
+                        <div>
+                            <h2>Reduced Anxiety</h2>
+                            <p>
+                                Immediate access to reliable information helps patients feel more informed and less anxious about their health concerns.
+                            </p>
+                        </div>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <h1>01</h1>
+                            <h1>02</h1>
                             <CiCircleCheck size={54} style={{ color: 'rgb(0, 51, 102' }} />
                         </div>
                     </div>
                     <div className={`${style.advbox} ${style.adv}`}>
-                        <h2>Accurate Diagnosis</h2>
-                        <p>
-                            The application uses advanced deep learning models to classify facial
-                            acne with precision, helping users identify specific acne types such as
-                            blackheads, whiteheads, or pustules.
-                        </p>
+                        <div>
+                            <h2>Personalized Advice</h2>
+                            <p>
+                                By analyzing patient data, chatbots can provide tailored advice for lifestyle improvements, diet plans, or exercise routines.
+                            </p>
+                        </div>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <h1>01</h1>
+                            <h1>03</h1>
                             <CiCircleCheck size={54} style={{ color: 'rgb(0, 51, 102' }} />
                         </div>
                     </div>
                     <div className={`${style.advbox} ${style.adv}`}>
-                        <h2>Accurate Diagnosis</h2>
-                        <p>
-                            The application uses advanced deep learning models to classify facial
-                            acne with precision, helping users identify specific acne types such as
-                            blackheads, whiteheads, or pustules.
-                        </p>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <h1>01</h1>
+                        <div>
+                            <h2>Instant Responses</h2>
+                            <p>
+                                Patients can get immediate answers to queries about symptoms, medications, or appointments without waiting for a human representative.
+                            </p>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', justifySelf: 'flex-end' }}>
+                            <h1>04</h1>
                             <CiCircleCheck size={54} style={{ color: 'rgb(0, 51, 102' }} />
                         </div>
                     </div>
                 </div>
                 <Footer />
             </div>
-         </div>
+        </div>
     );
 }

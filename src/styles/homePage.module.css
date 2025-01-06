@@ -363,6 +363,9 @@
     gap: 10px;
 }
   .advbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     padding: 1rem;
     box-sizing: border-box;

@@ -123,17 +123,6 @@ export default function About() {
                             <img src={Detection} width='80%' height={200} />
                             <p style={{ margin: '0px 20px', fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>By analyzing your skin type and identifying the specific acne category, we provide tailored recommendations to help you manage and treat acne more effectively. Our system delivers expert insights for healthier, clearer skin.</p>
                         </div>
-                        {/* <div className={style.advantage} style={{ background: 'rgb(212, 232, 255)' }}>
-                            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginLeft: '20px' }}>
-                                <div className={style.icondiv}>
-                                    <MdOutlineHealthAndSafety size={20} color="white" />
-                                </div>
-                                <p style={{ fontWeight: "bold", fontSize: '18px' }}>Preventive measures</p>
-                            </div>
-                            <div className={style.whiteline}></div>
-                            <img src={DoctorMeeting3} width='85%' height={200} />
-                            <p style={{ margin: '0px 20px', fontSize: '15px', margin: '0px 20px', fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Prevention is essential for clear skin. Our app offers personalized tips, from skincare routines to lifestyle and dietary changes, all tailored to your skin type. Reduce breakouts and maintain a glowing complexion with expert advice designed for your unique needs.</p>
-                        </div> */}
                         <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
                             <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginLeft: '20px' }}>
                                 <div className={style.icondiv}>
@@ -145,17 +134,6 @@ export default function About() {
                             <img src={DoctorMeeting3}  width='80%' height={200}  />
                             <p style={{ margin: '0px 20px', fontSize: '15px', margin: '0px 20px', fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Prevention is essential for clear skin. Our app offers personalized tips, from skincare routines to lifestyle and dietary changes, all tailored to your skin type. Reduce breakouts and maintain a glowing complexion with expert advice designed for your unique needs.</p>
                         </div>
-                        {/* <div className={style.advantage} style={{ background: 'rgb(212, 232, 255)' }}>
-                            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginLeft: '20px' }}>
-                                <div className={style.icondiv}>
-                                    <AiOutlineMedicineBox size={20} color="white" />
-                                </div>
-                                <p style={{ fontWeight: "bold", fontSize: '18px' }}>Medication</p>
-                            </div>
-                            <div className={style.whiteline}></div>
-                            <img src={Medication} width='85%' height={200} />
-                            <p style={{ margin: '0px 20px', fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Based on your acne type and skin condition, we provide personalized medication suggestions, including over-the-counter options and professional treatments. Our AI-driven recommendations ensure you receive the right care for clearer, healthier skin.</p>
-                        </div> */}
                         <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
                             <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginLeft: '20px' }}>
                                 <div className={style.icondiv}>
@@ -167,17 +145,6 @@ export default function About() {
                             <img src={Medication}  width='80%' height={200}  />
                             <p style={{ margin: '0px 20px', fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Based on your acne type and skin condition, we provide personalized medication suggestions, including over-the-counter options and professional treatments. Our AI-driven recommendations ensure you receive the right care for clearer, healthier skin.</p>
                         </div>
-                        {/* <div className={style.advantage} style={{ background: 'rgb(212, 232, 255)' }}>
-                            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginLeft: '20px' }}>
-                                <div className={style.icondiv}>
-                                    <GrSecure size={20} color="white" />
-                                </div>
-                                <p style={{ fontWeight: "bold", fontSize: '18px' }}>User privacy</p>
-                            </div>
-                            <div className={style.whiteline}></div>
-                            <img src={Privacy} width='85%' height={200} />
-                            <p style={{ margin: '0px 20px', fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>We ensure all your personal and skin data is kept secure and confidential. Our app protects your anonymity, with no sharing of information to third parties. Access personalized acne detection and treatment confidently, knowing your data remains private.</p>
-                        </div> */}
                         <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginLeft: '20px' }}>
                                 <div className={style.icondiv}>

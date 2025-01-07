@@ -81,7 +81,7 @@
 }
 
 .services {
-    margin-top: 70px;
+    margin-top: 50px;
     font-size: 40px;
     font-family: sans-serif;
     text-align: center;
@@ -98,6 +98,8 @@
     margin: 0px auto;
     justify-items: center;
     transform: translateY(100px);
+    position: relative;
+    z-index: -1;
 }
 
 .animate {
@@ -149,6 +151,8 @@
     gap: 30px;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: -1;
 }
 
 .matters {

@@ -89,12 +89,12 @@
 }
 
 .descriptioncontainer {
-    width: 100%;
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     /* 3 columns, each taking 1 fraction of space */
     row-gap: 40px;
-    column-gap: 0px;
+    column-gap: 10px;
     margin: 0px auto;
     justify-items: center;
     transform: translateY(100px);
@@ -103,7 +103,17 @@
 .animate {
     animation: moveUp 1s ease-out forwards;
 }
-
+.advbox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    border-radius: 15px;   
+    transition: all ease 1s;
+    background-color: rgb(212, 232, 255);
+}
 .advantage {
     border-radius: 15px;
     display: flex;
@@ -180,7 +190,6 @@
 .slideout {
     animation: slideOut 0.5s ease forwards;
 }
-
 
 @media(max-width: 1300px) {
     .descriptioncontainer {

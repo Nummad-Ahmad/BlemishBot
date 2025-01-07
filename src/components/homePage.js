@@ -80,8 +80,8 @@ export default function HomePage() {
                 <div className={style.acnecon}>
                     <div className={style.acnebox}>
                         <h2>Blackheads</h2>
-                        <p className={style.diseaseDesc}>Blackheads are open comedones caused by clogged pores filled with oil and dead skin cells. They appear as small, dark spots on the skin due to oxidation.</p>
                         <img src={Blackheads} alt="Blackheads" />
+                        <p className={style.diseaseDesc}>Blackheads are open comedones caused by clogged pores filled with oil and dead skin cells. They appear as small, dark spots on the skin due to oxidation.</p>
                     </div>
                     <div className={style.acnebox}>
                         <h2>Whiteheads</h2>

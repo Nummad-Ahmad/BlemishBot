@@ -153,16 +153,6 @@ export default function HomePage() {
                         <div className={style.whiteline}></div>
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Eliminates transportation, hospital and consultation charges.</p>
                     </div>
-                    {/* <div className={style.advantage} style={{ background: 'rgb(212, 232, 255)' }}>
-                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                            <div className={style.icondiv}>
-                                <MdAccessTime size={20} color='rgb(212, 232, 255)' />
-                            </div>
-                            <p style={{ fontWeight: "bold", fontSize: '18px' }}>24/7 Availability</p>
-                        </div>
-                        <div className={style.whiteline}></div>
-                        <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Available 24/7, allowing users to get help without waiting for clinic hours.</p>
-                    </div> */}
                     <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
@@ -173,16 +163,6 @@ export default function HomePage() {
                         <div className={style.whiteline}></div>
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Available 24/7, allowing users to get help without waiting for clinic hours.</p>
                     </div>
-                    {/* <div className={style.advantage} style={{ background: 'rgb(212, 232, 255)' }}>
-                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                            <div className={style.icondiv}>
-                                <IoAccessibility size={20} color='rgb(212, 232, 255)' />
-                            </div>
-                            <p style={{ fontWeight: "bold", fontSize: '18px' }}>Accessibility</p>
-                        </div>
-                        <div className={style.whiteline}></div>
-                        <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Access healthcare advice from homes without visiting hospital.</p>
-                    </div> */}
                     <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
@@ -193,16 +173,6 @@ export default function HomePage() {
                         <div className={style.whiteline}></div>
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Access healthcare advice from homes without visiting hospital.</p>
                     </div>
-                    {/* <div className={style.advantage} style={{ background: 'rgb(212, 232, 255)' }}>
-                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                            <div className={style.icondiv}>
-                                <GrSecure size={20} color='rgb(212, 232, 255)' />
-                            </div>
-                            <p style={{ fontWeight: "bold", fontSize: '18px' }}>Privacy</p>
-                        </div>
-                        <div className={style.whiteline}></div>
-                        <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Tailored to individual concerns while maintaining user anonymity.</p>
-                    </div> */}
                     <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>

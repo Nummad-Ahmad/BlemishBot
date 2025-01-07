@@ -511,4 +511,14 @@
     .acnebox:hover {
         pointer-events: none; 
     }
+    .acnebox:hover h2 {
+        display: block;
+      }
+      .acnebox:hover p {
+        display: block;
+      }
+      
+      .acnebox:hover img {
+        display: none;
+      }
 }

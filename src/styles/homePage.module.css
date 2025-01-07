@@ -508,7 +508,7 @@
 }
 
 @media (hover: none) and (pointer: coarse) {
-    .hover-effect {
-        pointer-events: none; /* Disable hover interaction */
+    .acnebox:hover {
+        pointer-events: none; 
     }
 }

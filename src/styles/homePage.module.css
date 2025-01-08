@@ -429,13 +429,13 @@
 @media(max-width: 650px){
     .video{
         height: 250px;
-        width: 100%;
+        width: 90%;
     }
 }
 @media(max-width: 495px){
     .video{
         height: 200px;
-        width: 100%;
+        width: 90%;
     }
 }
 @media (max-width: 900px) {

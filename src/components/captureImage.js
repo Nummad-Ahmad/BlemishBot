@@ -3,12 +3,11 @@ import React, { useState } from 'react';
 const ImagePicker = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Handle the file selection
   const handleImageChange = (event) => {
-    const file = event.target.files[0]; // Get the first selected file
+    const file = event.target.files[0]; 
     if (file) {
-      const imageURL = URL.createObjectURL(file); // Create a URL for the selected image
-      setSelectedImage(imageURL); // Set the image URL to state
+      const imageURL = URL.createObjectURL(file);
+      setSelectedImage(imageURL);
     }
   };
 
@@ -16,7 +15,7 @@ const ImagePicker = () => {
     <div>
       <input 
         type="file" 
-        accept="image/*"  // Restrict to image files
+        accept="image/*"  
         onChange={handleImageChange} 
       />
       

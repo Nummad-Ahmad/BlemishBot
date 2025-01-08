@@ -26,10 +26,8 @@ export default function HomePage() {
     const [isAnimated1, setIsAnimated1] = useState(true);
 
     const handleScroll = () => {
-        // Get the scroll position from the top of the document
         const scrollPosition = window.scrollY;
         console.log(scrollPosition);
-        // Trigger animation when scroll reaches 300px or more
         if (scrollPosition > 930) {
             setIsAnimated(true);
         } else {
@@ -45,10 +43,7 @@ export default function HomePage() {
         localStorage.setItem("storedValue", 0);
     }, []);
     useEffect(() => {
-        // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
-
-        // Clean up on unmount
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -101,7 +96,7 @@ export default function HomePage() {
                     <div className={style.acnebox}>
                         <h2>Papules</h2>
                         <p className={style.diseaseDesc}>Papules are small, red, and inflamed pimples caused by irritation or infection in clogged pores. They are tender to the touch and lack visible pus.</p>
-                        <img src={Pustules} alt="Pustules" />
+                        <img src={Papules} alt="Pustules" />
                     </div>
                     <div className={style.acnebox}>
                         <h2>Cysts</h2>

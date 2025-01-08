@@ -284,7 +284,6 @@
     }
 }
 
-/* Slide-out animation */
 @keyframes slideOut {
     from {
         opacity: 1;

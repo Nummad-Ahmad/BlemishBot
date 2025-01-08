@@ -18,7 +18,7 @@ import { GrSecure } from "react-icons/gr";
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Footer from './footerComponent';
-import { GoArrowUpRight } from 'react-icons/go';
+import video from '../images/acneVideo.mp4';
 import { CiCircleCheck } from 'react-icons/ci';
 
 export default function HomePage() {
@@ -105,8 +105,6 @@ export default function HomePage() {
                         <img src={Cysts} alt="Cysts" />
                     </div>
                 </div>
-
-
                 <div className={style.lightbluecontainer}>
                     <div className={style.leftrightcontainer}>
                         <div className={style.leftdiv}>
@@ -180,7 +178,9 @@ export default function HomePage() {
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Tailored to individual concerns while maintaining user anonymity.</p>
                     </div>
                 </div>
-
+                <div className={style.videoContainer}>
+                    <video className={style.video} src={video} autoPlay muted loop ></video>
+                </div>  
                 <p className={`${style.advan}`}>
                     Our advantages
                 </p>

@@ -389,6 +389,19 @@
     padding: 0.2rem;
     border-radius: 1rem;
   }
+  .videoContainer{
+    display: flex;
+    align-items: flex-start;
+    margin: 0px;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+  }
+  .video{
+    margin: 0px;
+    height: 500px;
+    width: 900px;
+  }
 
 @media(max-width: 1200px){
     .advantagesdiv{
@@ -400,7 +413,31 @@
         grid-template-rows: repeat(2, 1fr);
     }
 }
+@media(max-width: 970px){
+    .video{
+        height: 400px;
+        width: 750px;
+    }
+}
+@media(max-width: 795px){
+    .video{
+        height: 334px;
+        width: 600px;
+    }
+}
 
+@media(max-width: 650px){
+    .video{
+        height: 250px;
+        width: 100%;
+    }
+}
+@media(max-width: 495px){
+    .video{
+        height: 200px;
+        width: 100%;
+    }
+}
 @media (max-width: 900px) {
     .img {
         height: 60%;

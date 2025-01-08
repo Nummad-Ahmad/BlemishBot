@@ -4,16 +4,21 @@ import robot2 from '../images/robot2.png'
 import fb from '../images/fb.png';
 import google from '../images/google.png';
 import styles from '../styles/signup.module.css'
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast';
 const Signup = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(!isChecked);
+  };
   const [email, setemail] = useState("")
   const [password, setpass] = useState("")
   const [name, setname] = useState("")
   const navigate = useNavigate()
   function handleSignup(e) {
     e.preventDefault();
-    if (name && email && password) {
+    if (name && email && password && isChecked) {
       navigate('/')
     }
     else {
@@ -43,15 +48,24 @@ const Signup = () => {
             <input type="text" className={styles.input} value={name} onChange={(e) => setname(e.target.value)} placeholder="Full Name" />
             <input type="email" value={email} className={styles.input} onChange={(e) => setemail(e.target.value)} placeholder="Email Address" />
             <input type="password" value={password} className={styles.input} onChange={(e) => setpass(e.target.value)} placeholder="Password" />
+            <label>
+              <input
+                type="checkbox"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+              />
+              <p 
+              style={{marginLeft: '10px', display: 'inline'}}>Accept terms of service and privacy policy.</p>
+            </label>
             <button className={styles.signupButton} onClick={handleSignup}>Sign Up</button>
           </div>
         </div>
 
         <div className={styles.thirdpartysignup}>
-          <h4 className={styles.LineText} style={{fontSize: "18px"}}>Or Sign Up With</h4>
+          <h4 className={styles.LineText} style={{ fontSize: "18px" }}>Or Sign Up With</h4>
           <div className={styles.icons}>
-            <img src={google} height={50}/>
-            <img src={fb} height={50}/>
+            <img src={google} height={50} />
+            <img src={fb} height={50} />
           </div>
           <p style={{ color: "grey", textAlign: "center", fontSize: '16px' }}>
             Already have an account?{" "}

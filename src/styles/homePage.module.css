@@ -390,10 +390,6 @@
     border-radius: 1rem;
   }
 
-
-
-
-
 @media(max-width: 1200px){
     .advantagesdiv{
         grid-template-columns: repeat(2, 1fr);

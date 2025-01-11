@@ -161,7 +161,7 @@ export default function About() {
                         <p style={{ fontSize: '40px', fontWeight: '500', marginTop: '160px', marginBottom: '30px' }}>Why It Matters</p>
                         <div className={style.mattercontainer}>
                             <div className={`${style.matters} ${style[animationState]}`}>
-                                <img src={contentArray[index]['img']} height={300} width={400}>
+                                <img src={contentArray[index]['img']} className={style.matterimg}>
                                 </img>
                                 <p style={{ margin: '0px 20px', fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4', textAlign: 'center' }}>{contentArray[index]['text']}</p>
                             </div>

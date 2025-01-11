@@ -2,11 +2,10 @@ import style from '../styles/navbar.module.css';
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import { IoIosInformationCircleOutline } from "react-icons/io";
-import { VscTools } from "react-icons/vsc";
+import { CiPhone } from "react-icons/ci";
 import { MdOutlineLightbulb } from "react-icons/md";
 import { GiMedicines } from "react-icons/gi";
 import { useEffect, useState } from 'react';
-// import Logo1 from '../images/Logo1.svg';
 import logo from '../images/logoWhite.jpg';
 import { IoHomeOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +13,6 @@ import { useNavigate } from 'react-router-dom';
 export default function () {
     const navigate = useNavigate();
     const [index, setIndex] = useState(() => {
-        // Retrieve the initial value from localStorage
         return localStorage.getItem("storedValue") || 0;
       });
     const [clicked, setClicked] = useState(false);
@@ -32,7 +30,6 @@ export default function () {
         <div className={style.topnavbar}>
             <span style={{ display: 'flex', alignItems: 'center' }}>
                 <img className={style.navbarlogo} height={60} src={logo}></img>
-                {/* <h3 className={style.h3}>WellnessWiz</h3> */}
             </span>
             <div className={style.btncontainer}>
                 <button className={`${index == 0 ? style.btnActive : style.btnInactive}`} onClick={()=> { updateIndex(0); navigate('/homepage');}}>
@@ -46,6 +43,9 @@ export default function () {
                 </button>
                 <button className={`${index == 4 ? style.btnActive : style.btnInactive}`} onClick={()=> {navigate('/acnetypes'); updateIndex(4)}}>
                     Acne Types
+                </button>
+                <button className={`${index == 5 ? style.btnActive : style.btnInactive}`} onClick={()=> {navigate('/contact'); updateIndex(5)}}>
+                    Contact us
                 </button>
                 <button className={style.chatbtn} onClick={()=> {navigate('/chat'); updateIndex(5)}}>
                     Chat
@@ -78,6 +78,10 @@ export default function () {
                         <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigate('/acnetypes')}>
                             <GiMedicines size={20} color='black' />
                             <li><a>Acne types</a></li>
+                        </div>
+                        <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigate('/contact')}>
+                            <CiPhone size={20} color='black' />
+                            <li><a>Contact us</a></li>
                         </div>
                     </ul>
                 </div>

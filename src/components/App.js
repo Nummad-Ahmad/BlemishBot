@@ -10,6 +10,7 @@ import Chat from "./chat";
 import IndividualDisease from "./individualDisease";
 import Login from "./login";
 import Signup from "./signup";
+import Contact from "./contact";
 export default function App() {
     return (
             <Router>
@@ -21,7 +22,7 @@ export default function App() {
                     <Route path="/about" element={<About/>} />
                     <Route path="/working" element={<Working/>} />
                     <Route path="/chat" element={<Chat/>}/>
-                    <Route path="/individualDisease" element={<IndividualDisease/>}/>
+                    <Route path="/contact" element={<Contact/>}/>
                 </Routes>
             </Router>
     );

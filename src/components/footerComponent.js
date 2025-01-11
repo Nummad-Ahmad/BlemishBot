@@ -26,6 +26,9 @@ export default function Footer() {
                     <p onClick={() => navigate('/acnetypes')} className={style.link}>
                         Acne types
                     </p>
+                    <p onClick={() => navigate('/contact')} className={style.link}>
+                        Contact us
+                    </p>
                 </div>
             </div>
             <div className={style.hiddenDiv2}>
@@ -43,6 +46,9 @@ export default function Footer() {
                     </p>
                     <p onClick={() => navigate('/acnetypes')} className={style.link}>
                         Acne types
+                    </p>
+                    <p onClick={() => navigate('/contact')} className={style.link}>
+                        Contact us
                     </p>
                 </div>
             </div>

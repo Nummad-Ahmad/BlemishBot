@@ -30,7 +30,7 @@ export default function About() {
     },
     {
         img: HyperPigmentation,
-        text: 'Hyperpigmentation is a common aftermath of acne, where dark spots or patches develop due to increased melanin production in response to skin inflammation. Early acne treatment and proper skincare can help minimize the risk of hyperpigmentation'
+        text: 'Hyperpigmentation is a common aftermath of acne, where dark spots or patches develop due to increased melanin production in response to skin inflammation. Early acne treatment and proper skincare can help minimize this risk.'
     }
     ];
 
@@ -161,7 +161,7 @@ export default function About() {
                         <p style={{ fontSize: '40px', fontWeight: '500', marginTop: '160px', marginBottom: '30px' }}>Why It Matters</p>
                         <div className={style.mattercontainer}>
                             <div className={`${style.matters} ${style[animationState]}`}>
-                                <img src={contentArray[index]['img']} className={style.matterimg}>
+                                <img src={contentArray[index]['img']} height={300} width={400}>
                                 </img>
                                 <p style={{ margin: '0px 20px', fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4', textAlign: 'center' }}>{contentArray[index]['text']}</p>
                             </div>

@@ -1,7 +1,14 @@
 import Navbar from "./navbar";
 import style from '../styles/contact.module.css';
 import Contactrobot from '../images/contactrobo.png';
+import { useEffect } from "react";
 export default function Contact() {
+        useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
+        useEffect(() => {
+            localStorage.setItem("storedValue", 2);
+        }, []);
     return (
         <div className={style.contact}>
             <div style={{ position: 'fixed', width: '100vw' }}>

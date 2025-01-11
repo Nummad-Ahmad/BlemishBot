@@ -44,10 +44,10 @@ export default function () {
                 <button className={`${index == 4 ? style.btnActive : style.btnInactive}`} onClick={()=> {navigate('/acnetypes'); updateIndex(4)}}>
                     Acne Types
                 </button>
-                <button className={`${index == 5 ? style.btnActive : style.btnInactive}`} onClick={()=> {navigate('/contact'); updateIndex(5)}}>
+                <button className={`${index == 2 ? style.btnActive : style.btnInactive}`} onClick={()=> {navigate('/contact'); updateIndex(2)}}>
                     Contact us
                 </button>
-                <button className={style.chatbtn} onClick={()=> {navigate('/chat'); updateIndex(5)}}>
+                <button className={style.chatbtn} onClick={()=> {navigate('/chat'); updateIndex(6)}}>
                     Chat
                 </button>
             </div>

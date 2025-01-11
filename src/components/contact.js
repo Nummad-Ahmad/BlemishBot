@@ -2,6 +2,7 @@ import Navbar from "./navbar";
 import style from '../styles/contact.module.css';
 import Contactrobot from '../images/contactrobo.png';
 import { useEffect } from "react";
+import Footer from "./footerComponent";
 export default function Contact() {
         useEffect(() => {
             window.scrollTo(0, 0);
@@ -37,6 +38,7 @@ export default function Contact() {
                         <button className={style.btn}>Send</button>
                     </div>
                 </div>
+                <Footer />
             </div>
         </div>
     );

@@ -36,10 +36,13 @@
     .hiddenFooter {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
     }
 
     .hiddenDiv2 {
         display: none;
+    }
+    .link{
+        font-size: 14px;
     }
 } 

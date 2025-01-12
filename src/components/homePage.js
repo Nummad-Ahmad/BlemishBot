@@ -21,6 +21,7 @@ import Footer from './footerComponent';
 import video from '../images/acneVideo.mp4';
 import { CiCircleCheck } from 'react-icons/ci';
 
+
 export default function HomePage() {
     const [isAnimated, setIsAnimated] = useState(false);
     const [isAnimated1, setIsAnimated1] = useState(true);

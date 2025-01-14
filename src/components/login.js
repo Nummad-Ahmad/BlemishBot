@@ -14,7 +14,7 @@ const Login = () => {
   function handlelogin(e) {
     e.preventDefault();
     if (email && password) {
-      navigate('/homepage')
+      navigate('/chat')
     }
     else {
       toast.error('Fill all fields');

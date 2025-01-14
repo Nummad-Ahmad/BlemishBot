@@ -32,7 +32,7 @@ export default function () {
                 <img className={style.navbarlogo} height={60} src={logo}></img>
             </span>
             <div className={style.btncontainer}>
-                <button className={`${index == 0 ? style.btnActive : style.btnInactive}`} onClick={()=> { updateIndex(0); navigate('/homepage');}}>
+                <button className={`${index == 0 ? style.btnActive : style.btnInactive}`} onClick={()=> { updateIndex(0); navigate('/');}}>
                     Home
                 </button>
                 <button className={`${index == 1 ? style.btnActive : style.btnInactive}`} onClick={()=> { updateIndex(1); navigate('/about');}}>
@@ -47,7 +47,7 @@ export default function () {
                 <button className={`${index == 2 ? style.btnActive : style.btnInactive}`} onClick={()=> {navigate('/contact'); updateIndex(2)}}>
                     Contact us
                 </button>
-                <button className={style.chatbtn} onClick={()=> {navigate('/chat'); updateIndex(6)}}>
+                <button className={style.chatbtn} onClick={()=> {navigate('/login'); updateIndex(6)}}>
                     Chat
                 </button>
             </div>
@@ -63,7 +63,7 @@ export default function () {
                         <IoMdClose size={20} color='black' />
                     </div>
                     <ul>
-                        <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigate('/homepage')}>
+                        <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigate('/')}>
                             <IoHomeOutline size={20} color='black' />
                             <li><a>Home</a></li>
                         </div>

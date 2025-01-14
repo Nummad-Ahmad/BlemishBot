@@ -20,7 +20,10 @@ import { useEffect, useState } from 'react';
 import Footer from './footerComponent';
 import video from '../images/acneVideo.mp4';
 import { CiCircleCheck } from 'react-icons/ci';
-
+import { IoMdCloudUpload } from "react-icons/io";
+import { TbMedicineSyrup } from "react-icons/tb";
+import { GiProgression } from "react-icons/gi";
+import { BiCommentAdd } from "react-icons/bi";
 
 export default function HomePage() {
     const [isAnimated, setIsAnimated] = useState(false);
@@ -68,7 +71,7 @@ export default function HomePage() {
                     </div>
                     <img className={`${style.img} ${isAnimated1 ? style.animateImg : ''}`} src={ModelImage}></img>
                 </div>
-                <div onClick={() => navigate('/chat')} className={style.chat}>
+                <div onClick={() => navigate('/login')} className={style.chat}>
                     <BsChatDots size={20} color='white' />
                 </div>
                 <p className={style.treatments}>
@@ -233,6 +236,51 @@ export default function HomePage() {
                             <h1>04</h1>
                             <CiCircleCheck size={54} style={{ color: 'rgb(0, 51, 102' }} />
                         </div>
+                    </div>
+                </div>
+                <p className={`${style.whychooseus} ${isAnimated ? style.animate : ''}`}>
+                    Some simple steps
+                </p>
+                <div className={`${style.container}`}>
+                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
+                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                            <div className={style.icondiv}>
+                                <IoMdCloudUpload size={20} color='rgb(212, 232, 255)' />
+                            </div>
+                            <p style={{ fontWeight: "bold", fontSize: '18px' }}>Upload image</p>
+                        </div>
+                        <div className={style.whiteline}></div>
+                        <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Upload image from your gallery to get started.</p>
+                    </div>
+                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
+                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                            <div className={style.icondiv}>
+                                <TbMedicineSyrup size={20} color='rgb(212, 232, 255)' />
+                            </div>
+                            <p style={{ fontWeight: "bold", fontSize: '18px' }}>Get remedies</p>
+                        </div>
+                        <div className={style.whiteline}></div>
+                        <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Get remedies from our custom trained AI model.</p>
+                    </div>
+                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
+                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                            <div className={style.icondiv}>
+                                <GiProgression size={20} color='rgb(212, 232, 255)' />
+                            </div>
+                            <p style={{ fontWeight: "bold", fontSize: '18px' }}>Routine</p>
+                        </div>
+                        <div className={style.whiteline}></div>
+                        <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Follow the instructions given after the detection phase.</p>
+                    </div>
+                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
+                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                            <div className={style.icondiv}>
+                                <BiCommentAdd size={20} color='rgb(212, 232, 255)' />
+                            </div>
+                            <p style={{ fontWeight: "bold", fontSize: '18px' }}>Feedback</p>
+                        </div>
+                        <div className={style.whiteline}></div>
+                        <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Give your valuable insights from the contact us page.</p>
                     </div>
                 </div>
                 <Footer />

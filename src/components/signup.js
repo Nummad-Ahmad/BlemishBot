@@ -14,13 +14,16 @@ const Signup = () => {
   };
   const [email, setemail] = useState("")
   const [password, setpass] = useState("")
-  const [confirPass, setConfirmPass] = useState('');
+  const [confirmPass, setConfirmPass] = useState('');
   const [name, setname] = useState("")
   const navigate = useNavigate()
   function handleSignup(e) {
     e.preventDefault();
-    if (name && email && password && isChecked) {
-      navigate('/')
+    if (name && email && password && confirmPass && isChecked) {
+     if(password != confirmPass){
+      toast.error('Passwords must match with each other!');
+     }else 
+      navigate('/login')
     }
     else {
       toast.error('Fill all fields');
@@ -49,7 +52,7 @@ const Signup = () => {
             <input type="text" className={styles.input} value={name} onChange={(e) => setname(e.target.value)} placeholder="Full Name" />
             <input type="email" value={email} className={styles.input} onChange={(e) => setemail(e.target.value)} placeholder="Email Address" />
             <input type="password" value={password} className={styles.input} onChange={(e) => setpass(e.target.value)} placeholder="Password" />
-            <input type="password" value={confirPass} className={styles.input} onChange={(e) => setConfirmPass(e.target.value)} placeholder="Confirm password" />
+            <input type="password" value={confirmPass} className={styles.input} onChange={(e) => setConfirmPass(e.target.value)} placeholder="Confirm password" />
             <label>
               <input
                 type="checkbox"

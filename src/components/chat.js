@@ -1,8 +1,13 @@
 import style from '../styles/chat.module.css';
 import Navbar from "./navbar";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoMdCloudUpload } from "react-icons/io";
 export default function Chat() {
+    
+        useEffect(() => {
+            localStorage.setItem("storedValue", 10);
+        }, []);
+
 
     const text = "Black heads are a mild type of acne that form when pores become clogged with oil and dead skin cells. Unlike other acne types, blackheads are open at the surface, giving them their characteristic dark appearance. They are common and typically painless but can persist without proper skincare.";
 

@@ -14,7 +14,7 @@ export default function Footer() {
                     <p style={{ fontSize: '16px', color: 'white' }}> Copy Rights Reserved | ©{currentYear}</p>
                 </div>
                 <div style={{ display: 'flex', gap: '10px' }}>
-                    <p onClick={() => navigate('/homepage')} className={style.link}>
+                    <p onClick={() => navigate('/')} className={style.link}>
                         Home
                     </p>
                     <p onClick={() => navigate('/about')} className={style.link}>
@@ -35,7 +35,7 @@ export default function Footer() {
                 <img className={style.footerlogo} src={Logo}></img>
                 <p style={{ fontSize: '16px', color: 'white' }}> Copy Rights Reserved | ©{currentYear}</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    <p onClick={() => navigate('/homepage')} className={style.link}>
+                    <p onClick={() => navigate('/')} className={style.link}>
                         Home
                     </p>
                     <p onClick={() => navigate('/about')} className={style.link}>

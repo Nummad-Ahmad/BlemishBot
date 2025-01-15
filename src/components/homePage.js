@@ -245,7 +245,8 @@ export default function HomePage() {
                     <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
-                                <IoMdCloudUpload size={20} color='rgb(212, 232, 255)' />
+                                {/* <IoMdCloudUpload size={20} color='rgb(212, 232, 255)' /> */}
+                                <p style={{margin: '0px', fontSize: '25px', color: 'white'}}>1</p>
                             </div>
                             <p style={{ fontWeight: "bold", fontSize: '18px' }}>Upload image</p>
                         </div>
@@ -255,7 +256,7 @@ export default function HomePage() {
                     <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
-                                <TbMedicineSyrup size={20} color='rgb(212, 232, 255)' />
+                            <p style={{margin: '0px', fontSize: '25px', color: 'white'}}>2</p>
                             </div>
                             <p style={{ fontWeight: "bold", fontSize: '18px' }}>Get remedies</p>
                         </div>
@@ -265,7 +266,7 @@ export default function HomePage() {
                     <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
-                                <GiProgression size={20} color='rgb(212, 232, 255)' />
+                            <p style={{margin: '0px', fontSize: '25px', color: 'white'}}>3</p>
                             </div>
                             <p style={{ fontWeight: "bold", fontSize: '18px' }}>Routine</p>
                         </div>
@@ -275,7 +276,7 @@ export default function HomePage() {
                     <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
-                                <BiCommentAdd size={20} color='rgb(212, 232, 255)' />
+                            <p style={{margin: '0px', fontSize: '25px', color: 'white'}}>4</p>
                             </div>
                             <p style={{ fontWeight: "bold", fontSize: '18px' }}>Feedback</p>
                         </div>

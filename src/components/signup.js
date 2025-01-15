@@ -14,6 +14,7 @@ const Signup = () => {
   };
   const [email, setemail] = useState("")
   const [password, setpass] = useState("")
+  const [confirPass, setConfirmPass] = useState('');
   const [name, setname] = useState("")
   const navigate = useNavigate()
   function handleSignup(e) {
@@ -48,6 +49,7 @@ const Signup = () => {
             <input type="text" className={styles.input} value={name} onChange={(e) => setname(e.target.value)} placeholder="Full Name" />
             <input type="email" value={email} className={styles.input} onChange={(e) => setemail(e.target.value)} placeholder="Email Address" />
             <input type="password" value={password} className={styles.input} onChange={(e) => setpass(e.target.value)} placeholder="Password" />
+            <input type="password" value={confirPass} className={styles.input} onChange={(e) => setConfirmPass(e.target.value)} placeholder="Confirm password" />
             <label>
               <input
                 type="checkbox"

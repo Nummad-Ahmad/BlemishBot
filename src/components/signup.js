@@ -93,7 +93,7 @@ const Signup = () => {
           <p style={{ color: "grey", textAlign: "center", fontSize: '16px' }}>
             Already have an account?{" "}
             <span>
-              <p style={{ display: 'inline-block', fontSize: '18px', cursor: 'pointer' }} onClick={() => navigate('/')}>Sign in</p>
+              <p style={{ display: 'inline-block', fontSize: '18px', cursor: 'pointer' }} onClick={() => navigate('/login')}>Sign in</p>
 
             </span>
           </p>

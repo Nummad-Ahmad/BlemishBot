@@ -22,9 +22,13 @@ const Login = () => {
       if (valid && password.length > 8) {
         setLoading(true);
         axios.post(`https://blemishbotbackend.vercel.app/login`, { email, password }).then(result => {
-          toast.success('Account created');
+          toast.success('Login successful');
           navigate('/chat');
-        }).catch(error => { setLoading(false); toast.error(error) });
+        }).catch(error => {
+          setLoading(false);
+          const errorMessage = error.response?.data?.message || error.message || 'An unknown error occurred';
+          toast.error(errorMessage);
+        });
       } else if (!valid) {
         toast.error('Invalid email');
       } else {

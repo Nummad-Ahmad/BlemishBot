@@ -31,7 +31,6 @@ const Signup = () => {
           toast.success('Account created');
           navigate('/login');
         }).catch(error => {
-          
           toast.error(error.response.data.error)
           setLoading(false);
           console.log(error);

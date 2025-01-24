@@ -22,10 +22,10 @@ const Signup = () => {
 
   function handleSignup(e) {
     e.preventDefault();
-    if (name && email && password && confirmPass && isChecked) {
+    if (name && email && password && confirmPass && isChecked ) {
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       var valid = emailRegex.test(email);
-      if (valid && password.length > 7) {
+      if (valid && password.length > 7 && password==confirmPass) {
     setLoading(true); 
         axios.post(`https://blemishbotbackend.vercel.app/signup`, { email, password, name }).then(result => {
           toast.success('Login successful');
@@ -37,8 +37,10 @@ const Signup = () => {
         });
       } else if (!valid) {
         toast.error('Invalid email');
-      } else {
+      } else if(password.length < 7){
         toast.error('Minimum password length is 8');
+      }else if(password != confirmPass){
+        toast.error('Passwords must be same');        
       }
     }
     else {

@@ -49,7 +49,7 @@ const Login = () => {
             <div className={styles.inputContainer} action="" >
               <input type="text" className={styles.input} value={email} onChange={(e) => setemail(e.target.value)} placeholder="Username or Email Address" />
               <input type="password" value={password} className={styles.input} onChange={(e) => setpass(e.target.value)} placeholder="Password" />
-              <button className={styles.loginButton} onClick={handlelogin}>{loading ? 'Processing' : 'Login'}</button>
+              <button className={styles.loginButton} onClick={handlelogin}>{loading ? 'Signing in' : 'Login'}</button>
             </div>
           </div>
 

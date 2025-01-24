@@ -81,7 +81,7 @@ const Signup = () => {
               <p
                 style={{ marginLeft: '10px', display: 'inline' }}>Accept terms of service and privacy policy.</p>
             </label>
-            <button className={styles.signupButton} onClick={handleSignup}>{ loading ? 'Processing' : 'Sign Up'}</button>
+            <button className={styles.signupButton} onClick={handleSignup}>{ loading ? 'Registering' : 'Sign Up'}</button>
           </div>
         </div>
 

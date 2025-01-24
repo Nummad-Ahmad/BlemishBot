@@ -6,6 +6,7 @@ import google from '../images/google.png';
 import styles from '../styles/signup.module.css'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast';
+import axios from 'axios';
 const Signup = () => {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -17,13 +18,28 @@ const Signup = () => {
   const [confirmPass, setConfirmPass] = useState('');
   const [name, setname] = useState("")
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(false);
+
   function handleSignup(e) {
     e.preventDefault();
+    setLoading(true); 
     if (name && email && password && confirmPass && isChecked) {
-     if(password != confirmPass){
-      toast.error('Passwords must match with each other!');
-     }else 
-      navigate('/login')
+      e.preventDefault();
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      var valid = emailRegex.test(email);
+      if (valid && password.length > 7) {
+        axios.post(`https://blemishbotbackend.vercel.app/signup`, { email, password, name }).then(result => {
+          toast.success('Login successful');
+          navigate('/login');
+        }).catch(error => {
+          const errorMessage = error.response?.data?.message || error.message || 'An unknown error occurred';
+          toast.error(errorMessage);
+        });
+      } else if (!valid) {
+        toast.error('Invalid email');
+      } else {
+        toast.error('Minimum password length is 8');
+      }
     }
     else {
       toast.error('Fill all fields');
@@ -56,13 +72,13 @@ const Signup = () => {
             <label>
               <input
                 type="checkbox"
-              checked={isChecked}
-              onChange={handleCheckboxChange}
+                checked={isChecked}
+                onChange={handleCheckboxChange}
               />
-              <p 
-              style={{marginLeft: '10px', display: 'inline'}}>Accept terms of service and privacy policy.</p>
+              <p
+                style={{ marginLeft: '10px', display: 'inline' }}>Accept terms of service and privacy policy.</p>
             </label>
-            <button className={styles.signupButton} onClick={handleSignup}>Sign Up</button>
+            <button className={styles.signupButton} onClick={handleSignup}>{ loading ? 'Loading' : 'Sign Up'}</button>
           </div>
         </div>
 

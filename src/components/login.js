@@ -6,20 +6,34 @@ import fb from '../images/fb.png';
 import google from '../images/google.png';
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const Login = () => {
   const [email, setemail] = useState("")
   const [password, setpass] = useState("")
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
   function handlelogin(e) {
     e.preventDefault();
-    if (email && password) {
-      navigate('/chat')
+    setLoading(true);
+    if(email && password){
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    var valid = emailRegex.test(email);
+        if(valid && password.length > 7){
+            axios.post(`https://blemishbotbackend.vercel.app/login`, {email, password}).then(result => {
+                toast.success('Account created');
+                navigate('/chat');
+            }).catch(error => toast.error(error));
+    }else if(!valid){
+        toast.error('Invalid email');
+    }else{
+        toast.error('Minimum password length is 8');
     }
-    else {
-      toast.error('Fill all fields');
-    }
+  }else{
+    toast.error('Fill all fields');
   }
+}
 
   return (
     <>
@@ -31,7 +45,7 @@ const Login = () => {
             <div className={styles.inputContainer} action="" >
               <input type="text" className={styles.input} value={email} onChange={(e) => setemail(e.target.value)} placeholder="Username or Email Address" />
               <input type="password" value={password} className={styles.input} onChange={(e) => setpass(e.target.value)} placeholder="Password" />
-              <button className={styles.loginButton} onClick={handlelogin}>Login</button>
+              <button className={styles.loginButton} onClick={handlelogin}>{loading ? 'Processing' : 'Login'}</button>
             </div>
           </div>
 

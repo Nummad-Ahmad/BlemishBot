@@ -17,10 +17,10 @@ const Login = () => {
   function handlelogin(e) {
     e.preventDefault();
     if(email && password){
-    setLoading(true);
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     var valid = emailRegex.test(email);
         if(valid && password.length > 7){
+    setLoading(true); 
             axios.post(`https://blemishbotbackend.vercel.app/login`, {email, password}).then(result => {
                 toast.success('Account created');
                 navigate('/chat');

@@ -25,7 +25,7 @@ const Signup = () => {
     if (name && email && password && confirmPass && isChecked ) {
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       var valid = emailRegex.test(email);
-      if (valid && password.length > 8 && password==confirmPass) {
+      if (valid && password.length > 7 && password==confirmPass) {
     setLoading(true); 
         axios.post(`https://blemishbotbackend.vercel.app/signup`, { email, password, name }).then(result => {
           toast.success('Account created');

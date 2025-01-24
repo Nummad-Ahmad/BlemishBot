@@ -26,8 +26,7 @@ const Login = () => {
           navigate('/chat');
         }).catch(error => {
           setLoading(false);
-          const errorMessage = error.response?.data?.message || error.message || 'An unknown error occurred';
-          toast.error(errorMessage);
+          toast.error(error.response.data.error);
         });
       } else if (!valid) {
         toast.error('Invalid email');

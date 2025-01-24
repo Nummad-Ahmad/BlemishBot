@@ -24,10 +24,14 @@ import { IoMdCloudUpload } from "react-icons/io";
 import { TbMedicineSyrup } from "react-icons/tb";
 import { GiProgression } from "react-icons/gi";
 import { BiCommentAdd } from "react-icons/bi";
+import axios from 'axios';
 
 export default function HomePage() {
     const [isAnimated, setIsAnimated] = useState(false);
     const [isAnimated1, setIsAnimated1] = useState(true);
+    function get(){
+        axios.get('https://blemishbotbackend.vercel.app/').then(res => console.log(res)).catch(e => console.log(e));
+    }
 
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
@@ -44,6 +48,7 @@ export default function HomePage() {
         }
     };
     useEffect(() => {
+        get();
         localStorage.setItem("storedValue", 0);
     }, []);
     useEffect(() => {

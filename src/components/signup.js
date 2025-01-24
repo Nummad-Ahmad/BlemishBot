@@ -32,7 +32,7 @@ const Signup = () => {
           navigate('/login');
         }).catch(error => {
           
-          toast.error(error.response.data)
+          toast.error(error.response.data.error)
           setLoading(false);
           console.log(error);
         });

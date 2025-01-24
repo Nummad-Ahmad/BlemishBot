@@ -25,7 +25,7 @@ const Login = () => {
           toast.success('Login successful');
           navigate('/chat');
         }).catch(error => {
-          toast.error('error')
+          toast.error(error.response.data.error)
           setLoading(false);
           console.log(error.response.data.error);
         });

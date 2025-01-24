@@ -16,8 +16,8 @@ const Login = () => {
 
   function handlelogin(e) {
     e.preventDefault();
-    setLoading(true);
     if(email && password){
+    setLoading(true);
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     var valid = emailRegex.test(email);
         if(valid && password.length > 7){

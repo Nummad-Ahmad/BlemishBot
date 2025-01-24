@@ -22,9 +22,8 @@ const Signup = () => {
 
   function handleSignup(e) {
     e.preventDefault();
-    setLoading(true); 
     if (name && email && password && confirmPass && isChecked) {
-      e.preventDefault();
+    setLoading(true); 
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       var valid = emailRegex.test(email);
       if (valid && password.length > 7) {
@@ -78,7 +77,7 @@ const Signup = () => {
               <p
                 style={{ marginLeft: '10px', display: 'inline' }}>Accept terms of service and privacy policy.</p>
             </label>
-            <button className={styles.signupButton} onClick={handleSignup}>{ loading ? 'Loading' : 'Sign Up'}</button>
+            <button className={styles.signupButton} onClick={handleSignup}>{ loading ? 'Processing' : 'Sign Up'}</button>
           </div>
         </div>
 

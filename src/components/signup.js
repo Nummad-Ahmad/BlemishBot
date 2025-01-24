@@ -31,6 +31,7 @@ const Signup = () => {
           toast.success('Login successful');
           navigate('/login');
         }).catch(error => {
+          setLoading(false);
           const errorMessage = error.response?.data?.message || error.message || 'An unknown error occurred';
           toast.error(errorMessage);
         });

@@ -16,24 +16,24 @@ const Login = () => {
 
   function handlelogin(e) {
     e.preventDefault();
-    if(email && password){
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    var valid = emailRegex.test(email);
-        if(valid && password.length > 7){
-    setLoading(true); 
-            axios.post(`https://blemishbotbackend.vercel.app/login`, {email, password}).then(result => {
-                toast.success('Account created');
-                navigate('/chat');
-            }).catch(error => toast.error(error));
-    }else if(!valid){
+    if (email && password) {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      var valid = emailRegex.test(email);
+      if (valid && password.length > 7) {
+        setLoading(true);
+        axios.post(`https://blemishbotbackend.vercel.app/login`, { email, password }).then(result => {
+          toast.success('Account created');
+          navigate('/chat');
+        }).catch(error => { setLoading(false); toast.error(error) });
+      } else if (!valid) {
         toast.error('Invalid email');
-    }else{
+      } else {
         toast.error('Minimum password length is 8');
+      }
+    } else {
+      toast.error('Fill all fields');
     }
-  }else{
-    toast.error('Fill all fields');
   }
-}
 
   return (
     <>
@@ -41,7 +41,7 @@ const Login = () => {
 
         <div className={styles.loginContainer}>
           <div className={styles.FormContainer}>
-            <h1 style={{ color: "#3D52A3"}}>Welcome Back</h1>
+            <h1 style={{ color: "#3D52A3" }}>Welcome Back</h1>
             <div className={styles.inputContainer} action="" >
               <input type="text" className={styles.input} value={email} onChange={(e) => setemail(e.target.value)} placeholder="Username or Email Address" />
               <input type="password" value={password} className={styles.input} onChange={(e) => setpass(e.target.value)} placeholder="Password" />
@@ -52,9 +52,9 @@ const Login = () => {
           <div className={styles.thirdpartyLogin}>
             <h4 className={styles.LineText} style={{ fontSize: "18px" }}>Or Login With</h4>
             <div className={styles.icons}>
-            <img src={google} height={50}/>
-            <img src={fb} height={50}/>
-          </div>
+              <img src={google} height={50} />
+              <img src={fb} height={50} />
+            </div>
             <p style={{ color: "grey", textAlign: "center", fontSize: '16px' }}>
               Don't have an account?{" "}
               <span>

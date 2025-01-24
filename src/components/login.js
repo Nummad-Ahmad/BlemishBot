@@ -27,7 +27,7 @@ const Login = () => {
         }).catch(error => {
           toast.error('error')
           setLoading(false);
-          console.log(error.response.data);
+          console.log(error.response.data.error);
         });
       } else if (!valid) {
         toast.error('Invalid email');

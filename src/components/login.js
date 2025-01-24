@@ -25,8 +25,9 @@ const Login = () => {
           toast.success('Login successful');
           navigate('/chat');
         }).catch(error => {
+          toast.error(error.response.data)
           setLoading(false);
-          toast.error(error.response.data.error);
+          console.log(error.response.data);
         });
       } else if (!valid) {
         toast.error('Invalid email');

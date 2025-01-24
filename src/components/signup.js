@@ -28,7 +28,7 @@ const Signup = () => {
       if (valid && password.length > 7 && password==confirmPass) {
     setLoading(true); 
         axios.post(`https://blemishbotbackend.vercel.app/signup`, { email, password, name }).then(result => {
-          toast.success('Login successful');
+          toast.success('Account created');
           navigate('/login');
         }).catch(error => {
           setLoading(false);

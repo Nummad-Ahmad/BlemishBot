@@ -1,3 +1,4 @@
+import toast from 'react-hot-toast';
 import style from '../styles/chat.module.css';
 import Navbar from "./navbar";
 import { useEffect, useState } from 'react';
@@ -19,9 +20,14 @@ export default function Chat() {
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
+        const maxSizeInBytes = 2097152;
         if (file) {
+            if(file.size > maxSizeInBytes){
+                toast.error('Image size should be less than 2MB');
+            }else{
             const imageURL = URL.createObjectURL(file);
             setSelectedImage(imageURL);
+            }
         }
     };
 

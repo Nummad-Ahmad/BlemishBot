@@ -10,6 +10,7 @@ import logo from '../images/logoWhite.jpg';
 import { IoHomeOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { CiLogout } from "react-icons/ci";
 
 export default function () {
     const navigate = useNavigate();
@@ -101,6 +102,10 @@ export default function () {
                         <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigate('/contact')}>
                             <CiPhone size={20} color='black' />
                             <li><a>Contact us</a></li>
+                        </div>
+                        <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigateToHome()}>
+                            <CiLogout size={20} color='black' />
+                            <li><a>Log out</a></li>
                         </div>
                     </ul>
                 </div>

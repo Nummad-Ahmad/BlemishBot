@@ -25,11 +25,12 @@ import { TbMedicineSyrup } from "react-icons/tb";
 import { GiProgression } from "react-icons/gi";
 import { BiCommentAdd } from "react-icons/bi";
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export default function HomePage() {
     const [isAnimated, setIsAnimated] = useState(false);
     const [isAnimated1, setIsAnimated1] = useState(true);
-    function get(){
+    function get() {
         axios.get('https://blemishbotbackend.vercel.app/').then(res => console.log(res)).catch(e => console.log(e));
     }
 
@@ -59,6 +60,14 @@ export default function HomePage() {
         };
     }, []);
     const navigate = useNavigate();
+    function navigationFunction() {
+        const email = Cookies.get('email');
+        if (email) {
+            navigate('/chat');
+        } else {
+            navigate('/login')
+        }
+    }
     return (
         <div className={style.homepage}>
             <div style={{ position: 'fixed', width: '100vw' }}>
@@ -76,7 +85,7 @@ export default function HomePage() {
                     </div>
                     <img className={`${style.img} ${isAnimated1 ? style.animateImg : ''}`} src={ModelImage}></img>
                 </div>
-                <div onClick={() => navigate('/login')} className={style.chat}>
+                <div onClick={() => navigationFunction()} className={style.chat}>
                     <BsChatDots size={20} color='white' />
                 </div>
                 <p className={style.treatments}>
@@ -146,7 +155,7 @@ export default function HomePage() {
                         <div className={style.whiteline}></div>
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Eliminates transportation, hospital and consultation charges.</p>
                     </div> */}
-                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
+                    <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
                                 <FaSackDollar size={20} color='rgb(212, 232, 255)' />
@@ -156,7 +165,7 @@ export default function HomePage() {
                         <div className={style.whiteline}></div>
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Eliminates transportation, hospital and consultation charges.</p>
                     </div>
-                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
+                    <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
                                 <MdAccessTime size={20} color='rgb(212, 232, 255)' />
@@ -166,8 +175,8 @@ export default function HomePage() {
                         <div className={style.whiteline}></div>
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Available 24/7, allowing users to get help without waiting for clinic hours.</p>
                     </div>
-                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
-                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                    <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
+                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
                                 <IoAccessibility size={20} color='rgb(212, 232, 255)' />
                             </div>
@@ -176,8 +185,8 @@ export default function HomePage() {
                         <div className={style.whiteline}></div>
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Access healthcare advice from homes without visiting hospital.</p>
                     </div>
-                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
-                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                    <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
+                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
                                 <GrSecure size={20} color='rgb(212, 232, 255)' />
                             </div>
@@ -189,7 +198,7 @@ export default function HomePage() {
                 </div>
                 <div className={style.videoContainer}>
                     <video className={style.video} src={video} autoPlay muted loop ></video>
-                </div>  
+                </div>
                 <p className={`${style.advan}`}>
                     Our advantages
                 </p>
@@ -247,41 +256,41 @@ export default function HomePage() {
                     Some simple steps
                 </p>
                 <div className={`${style.container}`}>
-                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
+                    <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
                                 {/* <IoMdCloudUpload size={20} color='rgb(212, 232, 255)' /> */}
-                                <p style={{margin: '0px', fontSize: '25px', color: 'white'}}>1</p>
+                                <p style={{ margin: '0px', fontSize: '25px', color: 'white' }}>1</p>
                             </div>
                             <p style={{ fontWeight: "bold", fontSize: '18px' }}>Upload image</p>
                         </div>
                         <div className={style.whiteline}></div>
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Upload image from your gallery to get started.</p>
                     </div>
-                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
+                    <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
-                            <p style={{margin: '0px', fontSize: '25px', color: 'white'}}>2</p>
+                                <p style={{ margin: '0px', fontSize: '25px', color: 'white' }}>2</p>
                             </div>
                             <p style={{ fontWeight: "bold", fontSize: '18px' }}>Get remedies</p>
                         </div>
                         <div className={style.whiteline}></div>
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Get remedies from our custom trained AI model.</p>
                     </div>
-                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
-                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                    <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
+                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
-                            <p style={{margin: '0px', fontSize: '25px', color: 'white'}}>3</p>
+                                <p style={{ margin: '0px', fontSize: '25px', color: 'white' }}>3</p>
                             </div>
                             <p style={{ fontWeight: "bold", fontSize: '18px' }}>Routine</p>
                         </div>
                         <div className={style.whiteline}></div>
                         <p style={{ fontSize: '16px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>Follow the instructions given after the detection phase.</p>
                     </div>
-                    <div className={`${style.advbox} ${style.adv}`} style={{gap: '20px'}}>
-                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                    <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>
+                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                             <div className={style.icondiv}>
-                            <p style={{margin: '0px', fontSize: '25px', color: 'white'}}>4</p>
+                                <p style={{ margin: '0px', fontSize: '25px', color: 'white' }}>4</p>
                             </div>
                             <p style={{ fontWeight: "bold", fontSize: '18px' }}>Feedback</p>
                         </div>

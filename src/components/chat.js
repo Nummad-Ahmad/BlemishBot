@@ -5,7 +5,7 @@ import { IoMdCloudUpload } from "react-icons/io";
 export default function Chat() {
     
         useEffect(() => {
-            localStorage.setItem("storedValue", 10);
+            localStorage.setItem("storedValue", 6);
         }, []);
 
 

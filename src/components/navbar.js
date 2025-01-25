@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import logo from '../images/logoWhite.jpg';
 import { IoHomeOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 export default function () {
     const navigate = useNavigate();
@@ -26,6 +27,18 @@ export default function () {
             setIndex(Number(storedIndex));
         }
     }, [index]);
+    function navigationFunction(){
+        const email = Cookies.get('email');
+        if(email){
+            navigate('/chat');
+        }else{
+            navigate('/login')
+        }
+    }
+    function navigateToHome(){
+        Cookies.remove('email', { path: '/' });
+        navigate('/');
+    }
     return (
         <div className={style.topnavbar}>
             <span style={{ display: 'flex', alignItems: 'center' }}>
@@ -47,9 +60,15 @@ export default function () {
                 <button className={`${index == 2 ? style.btnActive : style.btnInactive}`} onClick={()=> {navigate('/contact'); updateIndex(2)}}>
                     Contact us
                 </button>
-                <button className={style.chatbtn} onClick={()=> {navigate('/login'); updateIndex(6)}}>
+                {
+                    index != 6 ? 
+                    <button className={style.chatbtn} onClick={()=> { updateIndex(6); navigationFunction();}}>
                     Chat
+                </button> :
+                <button className={style.btnInactive} onClick={()=> { updateIndex(0); navigateToHome();}}>
+                    Logout
                 </button>
+                }
             </div>
             <div className={style.menu}>
                 <div onClick={() => { setClicked(true) }}>

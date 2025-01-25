@@ -7,6 +7,7 @@ import google from '../images/google.png';
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const Login = () => {
   const [email, setemail] = useState("")
@@ -23,6 +24,7 @@ const Login = () => {
         setLoading(true);
         axios.post(`https://blemishbotbackend.vercel.app/login`, { email, password }).then(result => {
           toast.success('Login successful');
+          Cookies.set('email', email, { expires: 365 * 100, path: '/' });
           navigate('/chat');
         }).catch(error => {
           const errorMessage = error?.response?.data?.error || 'Something went wrong!';

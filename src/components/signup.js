@@ -31,9 +31,9 @@ const Signup = () => {
           toast.success('Account created');
           navigate('/login');
         }).catch(error => {
-          toast.error(error.response.data.error)
+          const errorMessage = error?.response?.data?.error || 'Something went wrong!';
+          toast.error(errorMessage);
           setLoading(false);
-          console.log(error);
         });
       } else if (!valid) {
         toast.error('Invalid email');

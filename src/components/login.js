@@ -172,13 +172,13 @@ const Login = () => {
         .then((response) => {
           if (response.status === 200) {
             toast.success(response.data.message || 'Account verified successfully!');
-            setShowVerification(false); // Hides the verification form
-            navigate('/chat'); // Redirects to the chat page
+            setShowVerification(false);
+            navigate('/chat');
           }
         })
         .catch((error) => {
+          setVerify(false);
           if (error.response) {
-            // Handle specific backend responses
             switch (error.response.status) {
               case 404:
                 toast.error(error.response.data.error || 'Invalid email or verification code.');
@@ -192,14 +192,14 @@ const Login = () => {
           } else {
             toast.error('Unable to connect to the server. Please check your network.');
           }
-          console.error('Verification error:', error); // Log the error for debugging
+          console.error('Verification error:', error);
         });
     } else {
-      toast.error('Enter a valid 6-digit code'); // Handle invalid input
+      toast.error('Enter a valid 6-digit code');
     }
   }
-  
-  
+
+
 
   return (
     <>
@@ -267,7 +267,7 @@ const Login = () => {
           <div className={styles.verificationContainer}>
             <div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center' }}>
               <h2 style={{ margin: '0px auto' }}>Verify Your Account</h2>
-              <span style={{ position: 'relative', right: 5 }} onClick={()=> setShowVerification(false)}>
+              <span style={{ position: 'relative', right: 5 }} onClick={() => setShowVerification(false)}>
                 <IoClose size={20} />
               </span>
             </div>

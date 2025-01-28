@@ -262,14 +262,12 @@ const Login = () => {
           <img className={styles.flyRobo} src={robot} alt="flying robot" />
         </div>
       </div>
-
-      {/* Verification Modal */}
       {showVerification && (
         <div className={styles.verificationOverlay}>
           <div className={styles.verificationContainer}>
-            <div style={{ display: 'flex', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', marginBottom: '10px', alignItems: 'center' }}>
               <h2 style={{ margin: '0px auto' }}>Verify Your Account</h2>
-              <span style={{ position: 'relative', right: 10 }} onClick={()=> setShowVerification(false)}>
+              <span style={{ position: 'relative', right: 5 }} onClick={()=> setShowVerification(false)}>
                 <IoClose size={20} />
               </span>
             </div>

@@ -190,6 +190,7 @@ const Login = () => {
                 toast.error('Something went wrong. Please try again.');
             }
           } else {
+            setVerify(false);
             toast.error('Unable to connect to the server. Please check your network.');
           }
           console.error('Verification error:', error);

@@ -38,7 +38,7 @@ export default function () {
     }
     function navigateToHome(){
         Cookies.remove('email', { path: '/' });
-        navigate('/');
+        navigate('/', { replace: true });
     }
     return (
         <div className={style.topnavbar}>

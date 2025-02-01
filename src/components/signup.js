@@ -29,7 +29,7 @@ const Signup = () => {
     setLoading(true); 
         axios.post(`https://blemishbotbackend.vercel.app/signup`, { email, password, name }).then(result => {
           toast.success('Account created');
-          navigate('/login');
+          navigate('/login', { replace: true });
         }).catch(error => {
           const errorMessage = error?.response?.data?.error || 'Something went wrong!';
           toast.error(errorMessage);

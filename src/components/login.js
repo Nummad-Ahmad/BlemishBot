@@ -142,7 +142,7 @@ const Login = () => {
             const verified = JSON.parse(Cookies.get("user")).isVerified;
             if (verified) {
               toast.success('Login successful');
-              navigate('/chat');
+              navigate('/chat', { replace: true });
             } else {
               toast.success('Verify your account to get started');
               setShowVerification(true);
@@ -173,7 +173,7 @@ const Login = () => {
           if (response.status === 200) {
             toast.success(response.data.message || 'Account verified successfully!');
             setShowVerification(false);
-            navigate('/chat');
+            navigate('/chat', { replace: true });
           }
         })
         .catch((error) => {

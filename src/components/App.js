@@ -1,17 +1,16 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Auth from './authPage';
 import HomePage from "./homePage";
-import SideBar from "./sideBar";
 import AllAcnes from "./acnes";
 import Working from "./working";
 import About from './about';
-import Services from './services';
 import Chat from "./chat";
-import IndividualDisease from "./individualDisease";
 import Login from "./login";
 import Signup from "./signup";
 import Contact from "./contact";
+import ProtectedRoute from "./protectedRoute";
+import Cookies from 'js-cookie';
 export default function App() {
+    const isAuthenticated = Cookies.get('email');
     return (
             <Router>
                 <Routes>
@@ -21,7 +20,10 @@ export default function App() {
                     <Route path="/acnetypes" element={<AllAcnes/>} />
                     <Route path="/about" element={<About/>} />
                     <Route path="/working" element={<Working/>} />
-                    <Route path="/chat" element={<Chat/>}/>
+                    <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+                        <Route path="/chat" element={<Chat/>} />
+                    </Route>
+                    {/* <Route path="/chat" element={<Chat/>}/> */}
                     <Route path="/contact" element={<Contact/>}/>
                 </Routes>
             </Router>

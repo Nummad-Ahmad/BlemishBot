@@ -3,11 +3,14 @@ import style from '../styles/chat.module.css';
 import Navbar from "./navbar";
 import { useEffect, useState } from 'react';
 import { IoMdCloudUpload } from "react-icons/io";
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
 export default function Chat() {
-    
-        useEffect(() => {
-            localStorage.setItem("storedValue", 6);
-        }, []);
+
+    useEffect(() => {
+        localStorage.setItem("storedValue", 6);
+    }, []);
 
 
     const text = "Black heads are a mild type of acne that form when pores become clogged with oil and dead skin cells. Unlike other acne types, blackheads are open at the surface, giving them their characteristic dark appearance. They are common and typically painless but can persist without proper skincare.";
@@ -18,15 +21,44 @@ export default function Chat() {
 
     const [selectedImage, setSelectedImage] = useState(null);
 
-    const handleImageChange = (event) => {
+    // const handleImageChange = (event) => {
+    //     const file = event.target.files[0];
+    //     const maxSizeInBytes = 2097152;
+    //     if (file) {
+    //         if(file.size > maxSizeInBytes){
+    //             toast.error('Image size should be less than 2MB');
+    //         }else{
+    //         const imageURL = URL.createObjectURL(file);
+    //         setSelectedImage(imageURL);
+    //         }
+    //     }
+    // };
+    const handleImageChange = async (event) => {
+        const loadingToast = toast.loading("Uploading image...");
+        const email = JSON.parse(Cookies.get("user")).email;
         const file = event.target.files[0];
         const maxSizeInBytes = 2097152;
         if (file) {
-            if(file.size > maxSizeInBytes){
-                toast.error('Image size should be less than 2MB');
-            }else{
-            const imageURL = URL.createObjectURL(file);
-            setSelectedImage(imageURL);
+            if (file.size > maxSizeInBytes) {
+                toast.error("Image size should be less than 2MB");
+                return;
+            }
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("email", email);
+
+            try {
+                const response = await axios.post("https://blemishbotbackend.vercel.app/upload", formData);
+                if (response.data.success == true) {
+                    toast.dismiss(loadingToast);
+                    setSelectedImage(response.data.imageUrl);
+                    toast.success("Image uploaded successfully!");
+                } else {
+                    toast.error("Image upload failed!");
+                }
+            } catch (error) {
+                toast.error("Error uploading image!");
+                console.log(error);
             }
         }
     };
@@ -65,7 +97,7 @@ export default function Chat() {
             </div>
             <div style={{ display: 'flex' }}>
                 <div className={style.historyContainer}>
-                    <p style={{ textAlign: 'center', margin: '10px 0px', marginTop: '20px',fontSize: '18px', fontFamily: 'sans-serif', fontWeight: 'bold' }}>History</p>
+                    <p style={{ textAlign: 'center', margin: '10px 0px', marginTop: '20px', fontSize: '18px', fontFamily: 'sans-serif', fontWeight: 'bold' }}>History</p>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                         {[...tempData, ...tempData, ...tempData].map((item, index) => (
                             <div key={index} className={style.singleHistoryContainer}>
@@ -156,7 +188,7 @@ export default function Chat() {
                                 <div className={style.bottomSpace}>A</div>
                             </div>
                     }
-                    
+
                 </div>
             </div>
         </div>

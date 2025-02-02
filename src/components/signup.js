@@ -94,7 +94,6 @@ const Signup = () => {
             Already have an account?{" "}
             <span>
               <p style={{ display: 'inline-block', fontSize: '18px', cursor: 'pointer' }} onClick={() => navigate('/login', { replace: true })}>Sign in</p>
-
             </span>
           </p>
         </div>

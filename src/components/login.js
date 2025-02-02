@@ -240,7 +240,7 @@ const Login = () => {
               <span>
                 <p
                   style={{ display: 'inline-block', fontSize: '18px', cursor: 'pointer' }}
-                  onClick={() => navigate('/signup')}
+                  onClick={() => navigate('/signup', { replace: true })}
                 >
                   Sign up
                 </p>

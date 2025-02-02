@@ -30,10 +30,6 @@ import Cookies from 'js-cookie';
 export default function HomePage() {
     const [isAnimated, setIsAnimated] = useState(false);
     const [isAnimated1, setIsAnimated1] = useState(true);
-    function get() {
-        axios.get('https://blemishbotbackend.vercel.app/').then(res => console.log(res)).catch(e => console.log(e));
-    }
-
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
         console.log(scrollPosition);
@@ -49,7 +45,6 @@ export default function HomePage() {
         }
     };
     useEffect(() => {
-        get();
         localStorage.setItem("storedValue", 0);
     }, []);
     useEffect(() => {

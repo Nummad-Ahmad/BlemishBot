@@ -7,7 +7,6 @@ import Chat from "./chat";
 import Login from "./login";
 import Signup from "./signup";
 import Contact from "./contact";
-import ProtectedRoute from "./protectedChatRoute";
 import Cookies from 'js-cookie';
 export default function App() {
     const isAuthenticated = Cookies.get('email');
@@ -20,10 +19,7 @@ export default function App() {
                     <Route path="/acnetypes" element={<AllAcnes/>} />
                     <Route path="/about" element={<About/>} />
                     <Route path="/working" element={<Working/>} />
-                    <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
-                        <Route path="/chat" element={<Chat/>} />
-                    </Route>
-                    {/* <Route path="/chat" element={<Chat/>}/> */}
+                    <Route path="/chat" element={<Chat/>}/>
                     <Route path="/contact" element={<Contact/>}/>
                 </Routes>
             </Router>

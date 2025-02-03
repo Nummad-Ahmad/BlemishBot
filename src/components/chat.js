@@ -5,16 +5,11 @@ import { useEffect, useState } from 'react';
 import { IoMdCloudUpload } from "react-icons/io";
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { get } from 'mongoose';
 
 export default function Chat() {
 
-    useEffect(() => {
-        localStorage.setItem("storedValue", 6);
-    }, []);
-
-
     const text = "Black heads are a mild type of acne that form when pores become clogged with oil and dead skin cells. Unlike other acne types, blackheads are open at the surface, giving them their characteristic dark appearance. They are common and typically painless but can persist without proper skincare.";
-
     const splitText = text.split(' ');
     const firstTwoWords = splitText.slice(0, 2).join(' ');
     const remainingText = splitText.slice(2).join(' ');
@@ -34,7 +29,6 @@ export default function Chat() {
     //     }
     // };
     const handleImageChange = async (event) => {
-        const loadingToast = toast.loading("Uploading image...");
         const email = JSON.parse(Cookies.get("user")).email;
         const file = event.target.files[0];
         const maxSizeInBytes = 2097152;
@@ -46,30 +40,27 @@ export default function Chat() {
             const formData = new FormData();
             formData.append("file", file);
             formData.append("email", email);
-
+            const loadingToast = toast.loading("Uploading image...");
             try {
                 const response = await axios.post("https://blemishbotbackend.vercel.app/upload", formData);
                 if (response.data.success == true) {
                     toast.dismiss(loadingToast);
                     setSelectedImage(response.data.imageUrl);
                     toast.success("Image uploaded successfully!");
+                    getData();
                 } else {
+                    toast.dismiss(loadingToast);
                     toast.error("Image upload failed!");
                 }
             } catch (error) {
+                toast.dismiss(loadingToast);
                 toast.error("Error uploading image!");
                 console.log(error);
             }
         }
     };
 
-    const tempData = [
-        { title: 'White heads' },
-        { title: 'Black heads' },
-        { title: 'Nodules' },
-        { title: 'Papules' },
-        { title: 'Pustules ' },
-    ];
+    const [historyData, setHistoryData] = useState([]);
 
     function descriptionContainer(text1, text2, text3, text4) {
         return (
@@ -89,7 +80,18 @@ export default function Chat() {
             </div>
         );
     }
-
+    function getData() {
+        axios.get('https://blemishbotbackend.vercel.app/history').then(res => { setHistoryData(res.data.data)}).catch(e => console.log(e));
+    }
+    useEffect(() => {
+        localStorage.setItem("storedValue", 6);
+        getData();
+    }, []);
+    function setDislpayData(id){
+        const img = historyData.find(item => item._id == id);
+        console.log(img);
+        setSelectedImage(img.url);
+    }
     return (
         <div className={style.chat}>
             <div style={{ position: 'fixed', width: '100vw' }}>
@@ -99,13 +101,20 @@ export default function Chat() {
                 <div className={style.historyContainer}>
                     <p style={{ textAlign: 'center', margin: '10px 0px', marginTop: '20px', fontSize: '18px', fontFamily: 'sans-serif', fontWeight: 'bold' }}>History</p>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                        {[...tempData, ...tempData, ...tempData].map((item, index) => (
-                            <div key={index} className={style.singleHistoryContainer}>
-                                <p style={{ margin: '10px 0px', fontSize: '14px', fontFamily: 'sans-serif' }}>
-                                    {item.title}
-                                </p>
-                            </div>
-                        ))}
+                        {
+                            historyData.length != 0 ?
+                                historyData.map((item, index) => (
+                                    <div key={index} onClick={()=>setDislpayData(item._id)} className={style.singleHistoryContainer}>
+                                        <p style={{ margin: '10px 0px', fontSize: '14px', fontFamily: 'sans-serif' }}>
+                                            {item.title}
+                                        </p>
+                                    </div>)) :
+                                <div className={style.noHistory}>
+                                    <p style={{ margin: '10px 0px', fontSize: '14px', fontFamily: 'sans-serif' }}>
+                                        Nothing in history ...
+                                    </p>
+                                </div>
+                        }
                     </div>
                 </div>
                 <div className={style.contentContainer}>

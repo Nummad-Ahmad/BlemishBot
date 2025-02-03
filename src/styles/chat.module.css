@@ -44,6 +44,13 @@
     padding: 5px 15px;
     box-sizing: border-box;
 }
+.noHistory{
+    width: 100%;
+    /* border-top: 1px solid rgb(190, 190, 190); */
+    box-sizing: border-box;
+    padding: 5px 15px;
+    box-sizing: border-box;    
+}
 .singleHistoryContainer:hover{
     background-color: rgba(190, 190, 190, 0.7);
 }

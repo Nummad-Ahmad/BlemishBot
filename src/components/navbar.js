@@ -11,8 +11,10 @@ import { IoHomeOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { CiLogout } from "react-icons/ci";
+import { BsChatDots } from "react-icons/bs";
 
 export default function () {
+    const email = Cookies.get('email');
     const navigate = useNavigate();
     const [index, setIndex] = useState(() => {
         return localStorage.getItem("storedValue") || 0;
@@ -29,7 +31,6 @@ export default function () {
         }
     }, [index]);
     function navigationFunction(){
-        const email = Cookies.get('email');
         if(email){
             navigate('/chat');
         }else{
@@ -103,10 +104,17 @@ export default function () {
                             <CiPhone size={20} color='black' />
                             <li><a>Contact us</a></li>
                         </div>
-                        <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigateToHome()}>
+                        {
+                            email ? 
+                            <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigateToHome()}>
                             <CiLogout size={20} color='black' />
                             <li><a>Log out</a></li>
-                        </div>
+                            </div> :
+                            <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigateToHome()}>
+                            <BsChatDots size={20} color='black' />
+                            <li><a>Chat</a></li>
+                            </div>
+                        }
                     </ul>
                 </div>
             }

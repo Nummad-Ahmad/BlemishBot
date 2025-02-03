@@ -282,7 +282,7 @@ const Login = () => {
               placeholder="Enter verification code"
             />
             <button onClick={handleVerificationSubmit} className={styles.verifyButton}>
-              {verify ? 'Verifing ...' : 'Submit'}
+              {verify ? 'Verifying ...' : 'Submit'}
             </button>
           </div>
         </div>

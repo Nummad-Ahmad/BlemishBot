@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import style from '../styles/auth.module.css';
 import auth from '../images/dr.png';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Logo1 from '../images/Logo1.svg'
 
 export default function Auth() {
     const [email, setEmail] = useState('');

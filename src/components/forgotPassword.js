@@ -202,7 +202,7 @@ const ForgotPassword = () => {
             <div className={styles.main}>
                 <div className={styles.loginContainer}>
                     <div className={styles.FormContainer}>
-                        <h1 style={{ color: "#3D52A3" }}>Forgot Password</h1>
+                        <h1 style={{ marginBottom: '30px' ,color: "#3D52A3" }}>Forgot Password</h1>
                         <div className={styles.inputContainer} action="">
                             <input
                                 type="text"

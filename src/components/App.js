@@ -8,11 +8,13 @@ import Login from "./login";
 import Signup from "./signup";
 import Contact from "./contact";
 import Cookies from 'js-cookie';
+import ForgotPassword from "./forgotPassword";
 export default function App() {
     const isAuthenticated = Cookies.get('email');
     return (
             <Router>
                 <Routes>
+                    <Route path="/forgotpassword" element={<ForgotPassword />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/" element={<HomePage/>} />

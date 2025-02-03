@@ -48,7 +48,7 @@ export default function AcneComponent({ img, title, desc, index }) {
                 <p style={{ fontWeight: "bold", fontSize: '18px' }}>{title}</p>
             </div>
             <div className={style.whiteline}></div>
-            <img src={img} width='85%' height={200} />
+            <img style={{margin: '0px auto'}} src={img} width='85%' height={200} />
             <p style={{ fontSize: '18px', margin: '0px 20px', fontFamily: 'Tahoma, sans-serif', lineHeight: '1.4' }}>{desc}</p>
         </div>
     );

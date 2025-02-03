@@ -20,11 +20,6 @@ import { useEffect, useState } from 'react';
 import Footer from './footerComponent';
 import video from '../images/acneVideo.mp4';
 import { CiCircleCheck } from 'react-icons/ci';
-import { IoMdCloudUpload } from "react-icons/io";
-import { TbMedicineSyrup } from "react-icons/tb";
-import { GiProgression } from "react-icons/gi";
-import { BiCommentAdd } from "react-icons/bi";
-import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export default function HomePage() {

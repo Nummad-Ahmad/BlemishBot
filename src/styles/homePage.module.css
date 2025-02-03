@@ -42,7 +42,7 @@
     font-size: 16px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease;
     height: auto;
   }
   
@@ -53,8 +53,9 @@
   
   .acnebox img {
     width: 100%;
-    height: 100%;
-    object-fit:fill;
+    /* height: 100%; */
+    height: 300px;
+    object-fit: fill;
     border-radius: 15px;
     display: none;
     transition: opacity 0.5s ease;
@@ -85,6 +86,7 @@
     margin-top: 50px;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     position: relative;
     z-index: -1;
 }
@@ -115,6 +117,7 @@
     transform: scale(0.3);
     position: relative;
     z-index: -1;
+    width: 450px;
 }
 .img.animateImg {
     animation: bounceIn 1s ease forwards;
@@ -425,7 +428,28 @@
         width: 600px;
     }
 }
+@media(max-width: 700px){
+    .mototaglinediv {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .imgandtext {
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+    .img{
+        display: none;
+    }
+    .text {
+        text-align: center;
+        margin: 20px 0px;
+    }
 
+    .tagline {
+        text-align: center;
+    }
+}
 @media(max-width: 650px){
     .video{
         height: 250px;
@@ -456,8 +480,9 @@
         visibility: visible;
     }
     .acnecon{
-        grid-template-columns: repeat(2, 1fr); /* 3 columns of equal width */
-        grid-template-rows: repeat(3, 1fr); /* 2 rows of equal height */
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: repeat(3, 1fr); 
+        height: 720px;
     }
     .acnebox{
         width: 100%;
@@ -531,7 +556,7 @@
     }
     .acnebox{
         height: 200px;
-        width: 90%;
+        width: 100%;
     }
     .acnebox:nth-child(5) {
         display: none;

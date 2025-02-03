@@ -39,6 +39,9 @@
 .singleHistoryContainer {
     width: 100%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     /* border-top: 1px solid rgb(190, 190, 190); */
     box-sizing: border-box;
     padding: 5px 15px;

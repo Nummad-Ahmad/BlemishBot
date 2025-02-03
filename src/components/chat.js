@@ -5,10 +5,9 @@ import { useEffect, useState } from 'react';
 import { IoMdCloudUpload } from "react-icons/io";
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { get } from 'mongoose';
 
 export default function Chat() {
-
+    const email = JSON.parse(Cookies.get("user")).email;
     const text = "Black heads are a mild type of acne that form when pores become clogged with oil and dead skin cells. Unlike other acne types, blackheads are open at the surface, giving them their characteristic dark appearance. They are common and typically painless but can persist without proper skincare.";
     const splitText = text.split(' ');
     const firstTwoWords = splitText.slice(0, 2).join(' ');
@@ -29,7 +28,6 @@ export default function Chat() {
     //     }
     // };
     const handleImageChange = async (event) => {
-        const email = JSON.parse(Cookies.get("user")).email;
         const file = event.target.files[0];
         const maxSizeInBytes = 2097152;
         if (file) {
@@ -40,6 +38,7 @@ export default function Chat() {
             const formData = new FormData();
             formData.append("file", file);
             formData.append("email", email);
+            formData.append("title", 'Black heads');
             const loadingToast = toast.loading("Uploading image...");
             try {
                 const response = await axios.post("https://blemishbotbackend.vercel.app/upload", formData);
@@ -81,16 +80,21 @@ export default function Chat() {
         );
     }
     function getData() {
-        axios.get('https://blemishbotbackend.vercel.app/history').then(res => { setHistoryData(res.data.data)}).catch(e => console.log(e));
+        axios.get(`https://blemishbotbackend.vercel.app/history?email=${email}`, email).then(res => { setHistoryData(res.data.data) }).catch(e => console.log(e));
     }
     useEffect(() => {
         localStorage.setItem("storedValue", 6);
         getData();
     }, []);
-    function setDislpayData(id){
+    function setDislpayData(id) {
         const img = historyData.find(item => item._id == id);
         console.log(img);
         setSelectedImage(img.url);
+    }
+    function getItemDate(itemDate) {
+        const tempDate = new Date(itemDate);
+        const formattedDate = tempDate.toLocaleDateString("en-GB");
+        return formattedDate;
     }
     return (
         <div className={style.chat}>
@@ -104,9 +108,12 @@ export default function Chat() {
                         {
                             historyData.length != 0 ?
                                 historyData.map((item, index) => (
-                                    <div key={index} onClick={()=>setDislpayData(item._id)} className={style.singleHistoryContainer}>
-                                        <p style={{ margin: '10px 0px', fontSize: '14px', fontFamily: 'sans-serif' }}>
+                                    <div key={index} onClick={() => setDislpayData(item._id)} className={style.singleHistoryContainer}>
+                                        <p style={{ margin: '10px 0px', fontSize: '16px', fontFamily: 'sans-serif' }}>
                                             {item.title}
+                                        </p>
+                                        <p style={{ margin: '0px', fontSize: '12px', fontFamily: 'sans-serif' }}>
+                                            {getItemDate(item.date)}
                                         </p>
                                     </div>)) :
                                 <div className={style.noHistory}>

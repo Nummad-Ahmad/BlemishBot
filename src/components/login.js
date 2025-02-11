@@ -223,7 +223,7 @@ const Login = () => {
                 onChange={(e) => setPass(e.target.value)}
                 placeholder="Password"
               />
-              <span onClick={()=> navigate('/forgotpassword')} style={{margin: '0px', color: 'rgb(61, 82, 163', cursor: 'pointer', width: '140px'}}>Forgot password?</span>
+              <span onClick={() => navigate('/forgotpassword')} style={{ margin: '0px', color: 'rgb(61, 82, 163', cursor: 'pointer', width: '140px' }}>Forgot password?</span>
               <button className={styles.loginButton} onClick={handleLogin}>
                 {loading ? 'Signing in...' : 'Login'}
               </button>

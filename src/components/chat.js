@@ -128,15 +128,16 @@ export default function Chat() {
                     {
                         !selectedImage ?
                             <div className={style.uploadImageContainer}>
-                                <div className={style.uploadImage}>
-                                    <IoMdCloudUpload size={70} />
-                                    <p>Upload image</p>
-                                </div>
+
 
                                 {
                                     !selectedImage &&
                                     <label htmlFor="file-input" className={style.customFileInput}>
-                                        Select Image
+                                        <div className={style.uploadImage}>
+                                            <IoMdCloudUpload size={70} color='black' />
+                                            <p style={{ color: 'black' }}>Upload image</p>
+                                        </div>
+                                        {/* Select Image */}
                                     </label>
                                 }
                                 <input

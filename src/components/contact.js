@@ -12,14 +12,19 @@ export default function Contact() {
     const [fname, setFname] = useState("");
     const [lname, setLname] = useState("");
     const [message, setMessage] = useState("");
-    const email = JSON.parse(Cookies.get("user")).email;
+        const email = Cookies.get('email');
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
     useEffect(() => {
         localStorage.setItem("storedValue", 2);
+        console.log(email);
     }, []);
     function sendFeedback() {
+        if(!email){
+            toast.error("Login first to send feedback!");
+            return;
+        }
         if (!message && !fname && !lname) {
             toast.error("Fill all fields");
         }

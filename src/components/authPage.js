@@ -12,19 +12,8 @@ export default function Auth() {
     const navigate = useNavigate();
     function handleClick() {
         toast.error('This feature is under development');
-        // if(!email){
-        //     toast.error('Email is required');
-        // }else if(!email.endsWith('@gmail.com')){
-        //     toast.error('Invalid email');
-        // }else if(!password){
-        //     toast.error('password is required');
-        // }else if(password.length < 8){
-        //     toast.error('minimum password length is 8');
-        // }else{
         localStorage.setItem("storedValue", 0);
         navigate('/homepage');
-        // toast.error('This feature is under development');
-        // }
     }
     const handleEmail = (event) => {
         setEmail(event.target.value);

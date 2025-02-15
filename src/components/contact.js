@@ -12,7 +12,7 @@ export default function Contact() {
     const [fname, setFname] = useState("");
     const [lname, setLname] = useState("");
     const [message, setMessage] = useState("");
-        const email = Cookies.get('email');
+    const email = JSON.parse(Cookies.get("user")).email;
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -21,30 +21,31 @@ export default function Contact() {
         console.log(email);
     }, []);
     function sendFeedback() {
-        if(!email){
+        if (!email) {
             toast.error("Login first to send feedback!");
             return;
         }
         if (!message && !fname && !lname) {
             toast.error("Fill all fields");
         }
-        else{
-        setSending(true);
-        const name = fname + lname;
-        axios.post('https://blemishbotbackend.vercel.app/feedback', { email, message, name }).then((response) => {
-            if (response.status === 200) {
-                toast.success(response.data.message || 'Feedback sent successfully!');
+        else {
+            setSending(true);
+            const name = fname + " " + lname;
+            console.log('e ', email);
+            axios.post('https://blemishbotbackend.vercel.app/feedback', { email, message, name }).then((response) => {
+                if (response.status === 200) {
+                    toast.success(response.data.message || 'Feedback sent successfully!');
+                    setSending(false);
+                    setFname("");
+                    setLname("");
+                    setMessage("");
+                }
+            }).catch((error) => {
                 setSending(false);
-                setFname("");
-                setLname("");
-                setMessage("");
-            }
-        }).catch((error) => {
-            setSending(false);
-            console.log('error', error.message);
-            toast.error(error.message || error.error || 'Invalid email or verification code.');
-        })
-    }
+                console.log('error', error.message);
+                toast.error(error.message || error.error || 'Invalid email or verification code.');
+            })
+        }
     }
     return (
         <div className={style.contact}>
@@ -68,7 +69,7 @@ export default function Contact() {
                         <p style={{ marginTop: '20px', marginBottom: '10px', fontWeight: 'bold', fontSize: '18px' }}>Last Name</p>
                         <input className={style.input} onChange={(e) => setLname(e.target.value)} value={lname} placeholder="Enter your last name" />
                         <p style={{ marginTop: '20px', marginBottom: '10px', fontWeight: 'bold', fontSize: '18px' }}>Your feedback or query</p>
-                        <input className={style.input} onChange={(e) => setMessage(e.target.value)} value={message} placeholder="Enter your feedback or query"/>
+                        <input className={style.input} onChange={(e) => setMessage(e.target.value)} value={message} placeholder="Enter your feedback or query" />
                         <button className={style.btn} onClick={() => { sendFeedback() }}>{isSending ? "Sending ..." : "Send"}</button>
                     </div>
                 </div>

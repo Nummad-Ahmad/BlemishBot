@@ -87,8 +87,8 @@ const Signup = () => {
         <div className={styles.thirdpartysignup}>
           <h4 className={styles.LineText} style={{ fontSize: "18px" }}>Or Sign Up With</h4>
           <div className={styles.icons}>
-            <img src={google} height={50} />
-            <img src={fb} height={50} />
+            <img onClick={()=> toast.error("Under development!")} src={google} height={50} />
+            <img onClick={()=> toast.error("Under development!")} src={fb} height={50} />
           </div>
           <p style={{ color: "grey", textAlign: "center", fontSize: '16px' }}>
             Already have an account?{" "}

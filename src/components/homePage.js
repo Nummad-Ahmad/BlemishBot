@@ -243,7 +243,7 @@ export default function HomePage() {
                     </div>
                 </div>
                 <p className={`${style.whychooseus} ${isAnimated ? style.animate : ''}`}>
-                    Some simple steps
+                    Working sequence
                 </p>
                 <div className={`${style.container}`}>
                     <div className={`${style.advbox} ${style.adv}`} style={{ gap: '20px' }}>

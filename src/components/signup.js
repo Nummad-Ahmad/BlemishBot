@@ -22,11 +22,11 @@ const Signup = () => {
 
   function handleSignup(e) {
     e.preventDefault();
-    if (name && email && password && confirmPass && isChecked ) {
+    if (name && email && password && confirmPass && isChecked) {
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       var valid = emailRegex.test(email);
-      if (valid && password.length > 7 && password==confirmPass) {
-    setLoading(true); 
+      if (valid && password.length > 7 && password == confirmPass) {
+        setLoading(true);
         axios.post(`https://blemishbotbackend.vercel.app/signup`, { email, password, name }).then(result => {
           toast.success('Account created');
           navigate('/login', { replace: true });
@@ -37,10 +37,10 @@ const Signup = () => {
         });
       } else if (!valid) {
         toast.error('Invalid email');
-      } else if(password.length < 8){
+      } else if (password.length < 8) {
         toast.error('Minimum password length is 8');
-      }else if(password != confirmPass){
-        toast.error('Passwords must be same');        
+      } else if (password != confirmPass) {
+        toast.error('Passwords must be same');
       }
     }
     else {
@@ -80,15 +80,15 @@ const Signup = () => {
               <p
                 style={{ marginLeft: '10px', display: 'inline' }}>Accept terms of service and privacy policy.</p>
             </label>
-            <button className={styles.signupButton} onClick={handleSignup}>{ loading ? 'Registering ...' : 'Sign Up'}</button>
+            <button className={styles.signupButton} onClick={handleSignup}>{loading ? 'Registering ...' : 'Sign Up'}</button>
           </div>
         </div>
 
         <div className={styles.thirdpartysignup}>
           <h4 className={styles.LineText} style={{ fontSize: "18px" }}>Or Sign Up With</h4>
           <div className={styles.icons}>
-            <img onClick={()=> toast.error("Under development!")} src={google} height={50} />
-            <img onClick={()=> toast.error("Under development!")} src={fb} height={50} />
+            <img onClick={() => toast.error("Under development!")} src={google} height={50} />
+            <img onClick={() => toast.error("Under development!")} src={fb} height={50} />
           </div>
           <p style={{ color: "grey", textAlign: "center", fontSize: '16px' }}>
             Already have an account?{" "}

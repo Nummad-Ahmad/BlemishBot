@@ -110,7 +110,7 @@ export default function () {
                             <CiLogout size={20} color='black' />
                             <li><a>Log out</a></li>
                             </div> :
-                            <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigateToHome()}>
+                            <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={()=> navigationFunction()}>
                             <BsChatDots size={20} color='black' />
                             <li><a>Chat</a></li>
                             </div>

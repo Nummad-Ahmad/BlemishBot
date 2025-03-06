@@ -17,6 +17,7 @@
     "framer-motion": "^11.15.0",
     "gsap": "^3.12.5",
     "js-cookie": "^3.0.5",
+    "lottie-react": "^2.4.1",
     "mongoose": "^8.6.3",
     "mongosh": "^2.3.1",
     "nodemon": "^3.1.6",

@@ -90,29 +90,6 @@ const Login = () => {
       toast.error('Enter a valid 6-digit code');
     }
   }
-  function googleLogin(){
-    // axios.get(`https://blemishbotbackend.vercel.app/googleauth`)
-    //   .then(result => {
-    //     Cookies.set('email', email, { expires: 365 * 100, path: '/' });
-    //     Cookies.set('user', JSON.stringify(result.data.user), { expires: 365 * 100, path: '/' });
-    //     // const verified = JSON.parse(Cookies.get("user")).isVerified;
-    //     // if (verified) {
-    //     toast.success('Login successful');
-    //     navigate('/chat', { replace: true });
-    //     // } else {
-    //     //   toast.success('Verify your account to get started');
-    //     //   setShowVerification(true);
-    //     //   setLoading(false);
-    //     // }
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //     const errorMessage = error?.response?.data?.error || 'Something went wrong!';
-    //     toast.error(errorMessage);
-    //     setLoading(false);
-    //   });
-    toast.error("Under development!");
-  }
   return (
     <>
       <div className={styles.main}>
@@ -143,8 +120,10 @@ const Login = () => {
           <div className={styles.thirdpartyLogin}>
             <h4 className={styles.LineText} style={{ fontSize: "18px" }}>Or Login With</h4>
             <div className={styles.icons}>
-              <img onClick={() => googleLogin()} src={google} height={50} alt="Google login" />
-              <img onClick={()=> toast.error("Under development!")} src={fb} height={50} alt="Facebook login" />
+              <a href="https://blemishbotbackend.vercel.app/auth/google">
+                <img src={google} height={50} alt="Google login" />
+              </a>
+              <img onClick={() => toast.error("Under development!")} src={fb} height={50} alt="Facebook login" />
             </div>
             <p style={{ color: "grey", textAlign: "center", fontSize: '16px' }}>
               Don't have an account?{" "}

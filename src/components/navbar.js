@@ -27,9 +27,7 @@ export default function () {
       function deleteCookie(name) {
         document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       }      
-    const temp = getCookie("email");
-    console.log('temp', temp);
-    const email = JSON.parse(Cookies.get("user")).email || getCookie("email");
+    const email = Cookies.get('email') || getCookie("email");
     console.log('email', email);
     const navigate = useNavigate();
     const [index, setIndex] = useState(() => {

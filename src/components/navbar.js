@@ -30,6 +30,7 @@ export default function () {
     const temp = getCookie("email");
     console.log('temp', temp);
     const email = JSON.parse(Cookies.get("user")).email || getCookie("email");
+    console.log('email', email);
     const navigate = useNavigate();
     const [index, setIndex] = useState(() => {
         return localStorage.getItem("storedValue") || 0;

@@ -24,6 +24,9 @@ export default function () {
         }
         return null;
       }
+      function deleteCookie(name) {
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      }      
     const temp = getCookie("email");
     console.log('temp', temp);
     const email = JSON.parse(Cookies.get("user")).email || getCookie("email");
@@ -51,6 +54,7 @@ export default function () {
     }
     function navigateToHome(){
         Cookies.remove('email', { path: '/' });
+        deleteCookie('email');
         navigate('/', { replace: true });
     }
     return (

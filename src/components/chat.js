@@ -7,8 +7,8 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export default function Chat() {
-
-    const email = Cookies.get("email");
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = Cookies.get('email') || urlParams.get('email');
     const text = "Black heads are a mild type of acne that form when pores become clogged with oil and dead skin cells. Unlike other acne types, blackheads are open at the surface, giving them their characteristic dark appearance. They are common and typically painless but can persist without proper skincare.";
     const splitText = text.split(' ');
     const firstTwoWords = splitText.slice(0, 2).join(' ');

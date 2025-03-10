@@ -26,7 +26,7 @@ export default function Chat() {
     .then(response => {
         if (response.data.email) {
             setEmail(response.data.email);
-            console.log(response.data.email);
+            console.log('response.data.email', response.data.email);
             
             document.cookie = `email=${response.data.email}; path=/; Secure; SameSite=None`;
         }

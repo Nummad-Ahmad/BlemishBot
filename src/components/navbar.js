@@ -14,20 +14,7 @@ import { CiLogout } from "react-icons/ci";
 import { BsChatDots } from "react-icons/bs";
 
 export default function () {
-      function getCookie(name) {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-          const cookie = cookies[i].trim();
-          if (cookie.startsWith(name + '=')) {
-            return decodeURIComponent(cookie.split('=')[1]);
-          }
-        }
-        return null;
-      }
-      function deleteCookie(name) {
-        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      }      
-    const email = Cookies.get('email') || getCookie("email");
+    const email = Cookies.get('email');
     console.log('email', email);
     const navigate = useNavigate();
     const [index, setIndex] = useState(() => {
@@ -53,7 +40,6 @@ export default function () {
     }
     function navigateToHome(){
         Cookies.remove('email', { path: '/' });
-        deleteCookie('email');
         navigate('/', { replace: true });
     }
     return (

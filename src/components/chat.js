@@ -7,6 +7,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export default function Chat() {
+    const [Email, setEmail] = useState("");
       function getCookie(name) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
@@ -17,9 +18,25 @@ export default function Chat() {
         }
         return null;
       }
+
+  useEffect(() => {
+    axios.get('https://blemishbotbackend.vercel.app/auth/google/callback', {
+        withCredentials: true // Ensures cookies are sent with the request
+    })
+    .then(response => {
+        if (response.data.email) {
+            setEmail(response.data.email);
+            console.log(response.data.email);
+            
+            document.cookie = `email=${response.data.email}; path=/; Secure; SameSite=None`;
+        }
+    })
+    .catch(error => console.error('Error fetching user:', error));
+}, []);
+
     const temp = getCookie("email");
     console.log('temp', temp);
-    const email = Cookies.get("email") || getCookie("email");
+    const email = Cookies.get("email") || Email;
     const text = "Black heads are a mild type of acne that form when pores become clogged with oil and dead skin cells. Unlike other acne types, blackheads are open at the surface, giving them their characteristic dark appearance. They are common and typically painless but can persist without proper skincare.";
     const splitText = text.split(' ');
     const firstTwoWords = splitText.slice(0, 2).join(' ');

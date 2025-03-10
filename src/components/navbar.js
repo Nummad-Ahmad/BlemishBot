@@ -14,7 +14,8 @@ import { CiLogout } from "react-icons/ci";
 import { BsChatDots } from "react-icons/bs";
 
 export default function () {
-    const email = Cookies.get('email');
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = Cookies.get('email') || urlParams.get('email');
     console.log('email', email);
     const navigate = useNavigate();
     const [index, setIndex] = useState(() => {

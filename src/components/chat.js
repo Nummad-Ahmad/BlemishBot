@@ -133,7 +133,6 @@ export default function Chat() {
     ]
     const updateText = (newText) => {
         const splitText = newText.split(' ');
-        console.log(newText);
         setText({
             originalText: newText,
             splitText: splitText,
@@ -164,7 +163,6 @@ export default function Chat() {
 
             const classification = response.data.classification[0].label
             setResult(response.data.classification[0].label);
-            console.log("Classification Result:", response.data.classification[0].label);
 
             if (classification === "Clear Skin") {
                 toast.error("Upload another image");
@@ -235,8 +233,14 @@ export default function Chat() {
             </div>
         );
     }
+    function sortByDateDescending(dataArray) {
+       return dataArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
     function getData() {
-        axios.get(`https://blemishbotbackend.vercel.app/history?email=${email}`, email).then(res => { setHistoryData(res.data.data) }).catch(e => console.log(e));
+        axios.get(`https://blemishbotbackend.vercel.app/history?email=${email}`, email)
+        .then(res => { 
+            setHistoryData(sortByDateDescending(res.data.data)) })
+        .catch(e => console.log(e));
     }
     useEffect(() => {
         localStorage.setItem("storedValue", 6);
@@ -244,7 +248,6 @@ export default function Chat() {
     }, []);
     function setDislpayData(id) {
         const img = historyData.find(item => item._id == id);
-        console.log(img);
         setSelectedImage(img.url);
     }
     function getItemDate(itemDate) {

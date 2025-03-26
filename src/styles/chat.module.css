@@ -184,7 +184,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 40px;
+    row-gap: 20px;
     column-gap: 0px;
     margin: 0px auto;
     justify-items: center;

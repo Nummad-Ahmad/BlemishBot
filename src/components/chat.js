@@ -165,7 +165,7 @@ export default function Chat() {
             setResult(response.data.classification[0].label);
 
             if (classification === "Clear Skin") {
-                toast.error("Upload another image");
+                toast.error("Acne not found");
                 return;
             } else if (classification === "No Specific Type Detected") {
                 toast.error("Upload clear image");

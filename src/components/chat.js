@@ -248,6 +248,37 @@ export default function Chat() {
     }, []);
     function setDislpayData(id) {
         const img = historyData.find(item => item._id == id);
+        switch (img.title) {
+            case "Blackhead": {
+                updateText(blackHeadsText);
+                setResult("Blackhead")
+                break;
+            }
+            case "Whitehead": {
+                updateText(whiteHeadsText);
+                setResult("Whitehead")
+                break;
+            }
+            case "Pustules": {
+                updateText(pustulesText);
+                setResult("Pustules")
+                break;
+            }
+            case "Papules": {
+                updateText(papulesText);
+                setResult("Papules")
+                break;
+            }
+            case "Nodules": {
+                updateText(nodulesText);
+                setResult("Nodules")
+                break;
+            }
+            default: {
+                updateText(cystsText);
+                setResult("Cysts")
+            }
+        }
         setSelectedImage(img.url);
     }
     function getItemDate(itemDate) {

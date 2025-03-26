@@ -25,7 +25,7 @@ export default function Chat() {
     const blackHeadsCauses = [
         'The overproduction of sebum by the sebaceous glands can lead to clogged pores, which eventually form blackheads. This is often influenced by hormonal changes and genetics.',
         `When dead skin cells accumulate on the skin's surface, they can mix with oil and block pores. If these clogged pores remain open, the trapped material oxidizes and turns black.`,
-        'Fluctuations in hormones, especially during puberty, menstruation, or pregnancy, can increase oil production, making the skin more prone to blackheads.',
+        'Fluctuations in hormones can increase oil production, making the skin more prone to blackheads.',
         'Not cleansing the skin properly or using comedogenic (pore-clogging) products can contribute to the development of blackheads. Failing to remove makeup and dirt can worsen the condition.'
     ];
     const whiteHeadsCauses = [

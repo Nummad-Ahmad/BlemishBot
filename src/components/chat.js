@@ -173,6 +173,9 @@ export default function Chat() {
             }
             formData.append("email", email);
             formData.append("title", classification);
+            formData.append("remedies", classification.toLowerCase() + "Remedies");
+            formData.append("preventions", classification.toLowerCase() + "Preventions");
+            formData.append("causes", classification.toLowerCase() + "Causes");
 
             const uploadResponse = await axios.post("https://blemishbotbackend.vercel.app/upload", formData);
 

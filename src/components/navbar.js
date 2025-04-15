@@ -1,6 +1,7 @@
 import style from '../styles/navbar.module.css';
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { CiPhone } from "react-icons/ci";
 import { MdOutlineLightbulb } from "react-icons/md";
@@ -12,6 +13,8 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { CiLogout } from "react-icons/ci";
 import { BsChatDots } from "react-icons/bs";
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export default function () {
     const urlParams = new URLSearchParams(window.location.search);
@@ -43,6 +46,21 @@ export default function () {
         Cookies.remove('email', { path: '/' });
         navigate('/', { replace: true });
     }
+    const [showDeactivate, setShowDeactivate] = useState(false);
+    function deactivate(){
+        const loadingToast = toast.loading("Deactivating ...");
+        axios.post('/deactivate', {email}).
+        then((res) => {
+            toast.dismiss(loadingToast);
+            toast.success("Deactivated successfully");
+            navigateToHome();
+        }
+        ).
+        catch(e => {
+            toast.error("An error occured");
+        });
+    }
+
     return (
         <div className={style.topnavbar}>
             <span style={{ display: 'flex', alignItems: 'center' }}>
@@ -69,9 +87,46 @@ export default function () {
                     <button className={style.chatbtn} onClick={()=> { updateIndex(6); navigationFunction();}}>
                     Chat
                 </button> :
-                <button className={style.btnInactive} onClick={()=> { updateIndex(0); navigateToHome();}}>
-                    Logout
-                </button>
+                <>
+                <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+  <button
+    className={style.btnInactive}
+    onClick={()=> { updateIndex(0); navigateToHome();}}
+    style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
+  >
+    Logout
+  </button>
+ 
+  <div style={{display: 'inline'}} onClick={()=>setShowDeactivate(prev => !prev)}>
+    {!showDeactivate ? <FaChevronDown size={15} color='white'/> : <FaChevronUp size={15} color='white'/>}
+    </div>
+  {showDeactivate && (
+    <button
+      style={{
+        position: 'absolute',
+        top: '100%',
+        left: 0,
+        marginTop: '25px',
+        zIndex: 1,
+        backgroundColor: 'rgb(200, 200, 200)',
+        padding: '5px 10px',
+        borderRadius: '5px',
+        color: 'black',
+        border: 'none',
+        cursor: 'pointer',
+        fontSize: '16px'
+      }}
+      onClick={() => {
+        updateIndex(0);
+        navigateToHome(); // or a custom deactivate function
+      }}
+    >
+      Deactivate
+    </button>
+  )}
+</div>
+
+                </>
                 }
             </div>
             <div className={style.menu}>

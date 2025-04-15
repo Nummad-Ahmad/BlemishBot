@@ -118,7 +118,7 @@ export default function () {
       }}
       onClick={() => {
         updateIndex(0);
-        navigateToHome(); // or a custom deactivate function
+        deactivate() 
       }}
     >
       Deactivate

@@ -49,7 +49,7 @@ export default function () {
     const [showDeactivate, setShowDeactivate] = useState(false);
     function deactivate(){
         const loadingToast = toast.loading("Deactivating ...");
-        axios.post('/deactivate', {email}).
+        axios.post('https://blemish-bot.vercel.app/deactivate', {email}).
         then((res) => {
             toast.dismiss(loadingToast);
             toast.success("Deactivated successfully");

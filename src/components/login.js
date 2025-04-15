@@ -123,7 +123,6 @@ const Login = () => {
               <a href="https://blemishbotbackend.vercel.app/auth/google">
                 <img src={google} height={50} alt="Google login" />
               </a>
-              <img onClick={() => toast.error("Under development!")} src={fb} height={50} alt="Facebook login" />
             </div>
             <p style={{ color: "grey", textAlign: "center", fontSize: '16px' }}>
               Don't have an account?{" "}

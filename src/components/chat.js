@@ -159,15 +159,16 @@ export default function Chat() {
         try {
             const loadingToast = toast.loading("Uploading image...");
             const response = await axios.post("http://localhost:5000/predict", formData);
-            toast.dismiss(loadingToast);
 
             const classification = response.data.classification[0].label
             setResult(response.data.classification[0].label);
 
             if (classification === "Clear Skin") {
+                toast.dismiss(loadingToast);
                 toast.error("Acne not found");
                 return;
             } else if (classification === "No Specific Type Detected") {
+                toast.dismiss(loadingToast);
                 toast.error("Upload clear image");
                 return;
             }
@@ -202,6 +203,7 @@ export default function Chat() {
             const uploadResponse = await axios.post("https://blemishbotbackend.vercel.app/upload", formData);
 
             if (uploadResponse.data.success) {
+                toast.dismiss(loadingToast);
                 setSelectedImage(uploadResponse.data.imageUrl);
                 toast.success("Image uploaded successfully!");
                 switch (classification) {
@@ -231,6 +233,7 @@ export default function Chat() {
                 }
                 getData();
             } else {
+                toast.dismiss(loadingToast);
                 toast.error("Image upload failed!");
             }
         } catch (error) {

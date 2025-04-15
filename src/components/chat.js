@@ -235,7 +235,7 @@ export default function Chat() {
             } else {
                 toast.dismiss(loadingToast);
                 toast.error("Image upload failed!");
-            }
+            } 
         } catch (error) {
             toast.dismiss();
             toast.error("An error occurred!");

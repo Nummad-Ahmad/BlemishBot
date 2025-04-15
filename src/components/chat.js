@@ -173,9 +173,31 @@ export default function Chat() {
             }
             formData.append("email", email);
             formData.append("title", classification);
-            formData.append("remedies", classification.toLowerCase() + "Remedies");
-            formData.append("preventions", classification.toLowerCase() + "Preventions");
-            formData.append("causes", classification.toLowerCase() + "Causes");
+            if (classification.toLowerCase() == "blackhead") {
+                formData.append("remedies", blackheadsRemedies);
+                formData.append("preventions", blackHeadsPreventions);
+                formData.append("causes", blackHeadsCauses);
+            } else if (classification.toLowerCase() == "whitehead") {
+                formData.append("remedies", whiteheadsRemedies);
+                formData.append("preventions", whiteHeadsPreventions);
+                formData.append("causes", whiteHeadsCauses);
+            } else if (classification.toLowerCase() == "nodules") {
+                formData.append("remedies", nodulesRemedies);
+                formData.append("preventions", nodulesPreventions);
+                formData.append("causes", nodulesCauses);
+            } else if (classification.toLowerCase() == "papules") {
+                formData.append("remedies", papulesRemedies);
+                formData.append("preventions", papulesPreventions);
+                formData.append("causes", papulesCauses);
+            } else if (classification.toLowerCase() == "pustules") {
+                formData.append("remedies", pustulesRemedies);
+                formData.append("preventions", pustulesPreventions);
+                formData.append("causes", pustulesCauses);
+            } else {
+                formData.append("remedies", cystsRemedies);
+                formData.append("preventions", cystsPreventions);
+                formData.append("causes", cystsCauses);
+            }
 
             const uploadResponse = await axios.post("https://blemishbotbackend.vercel.app/upload", formData);
 
@@ -237,13 +259,14 @@ export default function Chat() {
         );
     }
     function sortByDateDescending(dataArray) {
-       return dataArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+        return dataArray.sort((a, b) => new Date(b.date) - new Date(a.date));
     }
     function getData() {
         axios.get(`https://blemishbotbackend.vercel.app/history?email=${email}`, email)
-        .then(res => { 
-            setHistoryData(sortByDateDescending(res.data.data)) })
-        .catch(e => console.log(e));
+            .then(res => {
+                setHistoryData(sortByDateDescending(res.data.data))
+            })
+            .catch(e => console.log(e));
     }
     useEffect(() => {
         localStorage.setItem("storedValue", 6);
@@ -372,47 +395,47 @@ export default function Chat() {
                                 <p className={style.heading}>Common causes</p>
                                 {
                                     result == "Blackhead" ?
-                                    descriptionContainer(blackHeadsCauses) :
-                                    result == "Whitehead" ?
-                                    descriptionContainer(whiteHeadsCauses) :
-                                    result == "Nodules" ?
-                                    descriptionContainer(nodulesCauses) :
-                                    result == "Papules" ? 
-                                    descriptionContainer(papulesCauses) :
-                                    result == "Pustules" ?
-                                    descriptionContainer(pustulesCauses) : 
-                                    descriptionContainer(cystsCauses)
+                                        descriptionContainer(blackHeadsCauses) :
+                                        result == "Whitehead" ?
+                                            descriptionContainer(whiteHeadsCauses) :
+                                            result == "Nodules" ?
+                                                descriptionContainer(nodulesCauses) :
+                                                result == "Papules" ?
+                                                    descriptionContainer(papulesCauses) :
+                                                    result == "Pustules" ?
+                                                        descriptionContainer(pustulesCauses) :
+                                                        descriptionContainer(cystsCauses)
                                 }
                                 <p className={style.heading}>Preventions</p>
 
                                 {
                                     result == "Blackhead" ?
-                                    descriptionContainer(blackHeadsPreventions) :
-                                    result == "Whitehead" ?
-                                    descriptionContainer(whiteHeadsPreventions) :
-                                    result == "Nodules" ?
-                                    descriptionContainer(nodulesPreventions) :
-                                    result == "Papules" ? 
-                                    descriptionContainer(papulesPreventions) :
-                                    result == "Pustules" ?
-                                    descriptionContainer(pustulesPreventions) : 
-                                    descriptionContainer(cystsPreventions)
+                                        descriptionContainer(blackHeadsPreventions) :
+                                        result == "Whitehead" ?
+                                            descriptionContainer(whiteHeadsPreventions) :
+                                            result == "Nodules" ?
+                                                descriptionContainer(nodulesPreventions) :
+                                                result == "Papules" ?
+                                                    descriptionContainer(papulesPreventions) :
+                                                    result == "Pustules" ?
+                                                        descriptionContainer(pustulesPreventions) :
+                                                        descriptionContainer(cystsPreventions)
                                 }
 
                                 <p className={style.heading}>Remedies</p>
 
                                 {
                                     result == "Blackhead" ?
-                                    descriptionContainer(blackheadsRemedies) :
-                                    result == "Whitehead" ?
-                                    descriptionContainer(whiteheadsRemedies) :
-                                    result == "Nodules" ?
-                                    descriptionContainer(nodulesRemedies) :
-                                    result == "Papules" ? 
-                                    descriptionContainer(papulesRemedies) :
-                                    result == "Pustules" ?
-                                    descriptionContainer(pustulesRemedies) : 
-                                    descriptionContainer(cystsRemedies)
+                                        descriptionContainer(blackheadsRemedies) :
+                                        result == "Whitehead" ?
+                                            descriptionContainer(whiteheadsRemedies) :
+                                            result == "Nodules" ?
+                                                descriptionContainer(nodulesRemedies) :
+                                                result == "Papules" ?
+                                                    descriptionContainer(papulesRemedies) :
+                                                    result == "Pustules" ?
+                                                        descriptionContainer(pustulesRemedies) :
+                                                        descriptionContainer(cystsRemedies)
                                 }
 
                                 <div className={style.bottomSpace}>A</div>

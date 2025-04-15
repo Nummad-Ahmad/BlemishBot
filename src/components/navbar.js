@@ -48,15 +48,20 @@ export default function () {
     }
     const [showDeactivate, setShowDeactivate] = useState(false);
     function deactivate(){
+        console.log("Y");
         const loadingToast = toast.loading("Deactivating ...");
-        axios.post('https://blemish-bot.vercel.app/deactivate', {email}).
+        axios.post('https://blemishbotbackend.vercel.app/deactivate', {email}).
         then((res) => {
+            console.log(res)
             toast.dismiss(loadingToast);
             toast.success("Deactivated successfully");
             navigateToHome();
+            updateIndex(0);
         }
         ).
         catch(e => {
+            toast.dismiss(loadingToast);
+            console.log(e);
             toast.error("An error occured");
         });
     }
@@ -117,7 +122,6 @@ export default function () {
         fontSize: '16px'
       }}
       onClick={() => {
-        updateIndex(0);
         deactivate() 
       }}
     >

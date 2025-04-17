@@ -208,7 +208,7 @@ export default function Chat() {
                 toast.success("Image uploaded successfully!");
                 switch (classification) {
                     case "Blackhead": {
-                        updateText(blackHeadsText);
+                        updateText(blackHeadsText); 
                         break;
                     }
                     case "Whitehead": {

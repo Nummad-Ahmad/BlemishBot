@@ -144,14 +144,14 @@ export default function Chat() {
 
     const handleImageChange = async (event) => {
         const file = event.target.files[0];
-        // const maxSizeInBytes = 2097152; 
+        const maxSizeInBytes = 2097152; 
 
         if (!file) return;
 
-        // if (file.size > maxSizeInBytes) {
-        //     toast.error("Image size should be less than 2MB");
-        //     return;
-        // }
+        if (file.size > maxSizeInBytes) {
+            toast.error("Image size should be less than 2MB");
+            return;
+        }
 
         const formData = new FormData();
         formData.append("file", file);

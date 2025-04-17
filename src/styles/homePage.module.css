@@ -292,12 +292,12 @@
 
 @keyframes moveUp {
     from {
-        transform: translateY(400px); /* Start 500px down */
-        opacity: 0; /* Start invisible */
+        transform: translateY(400px); 
+        opacity: 0; 
     }
     to {
-        transform: translateY(0); /* Move to original position */
-        opacity: 1; /* Fully visible */
+        transform: translateY(0);
+        opacity: 1; 
     }
 }
 .advantagesdiv{

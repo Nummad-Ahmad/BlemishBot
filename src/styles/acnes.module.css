@@ -13,7 +13,7 @@
 .descriptioncontainer{
     width: 90%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns, each taking 1 fraction of space */
+    grid-template-columns: repeat(3, 1fr); 
     row-gap: 40px; 
     column-gap: 0px;
     margin: 50px auto;

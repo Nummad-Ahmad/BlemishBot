@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import  styles from '../styles/landing.module.css';
 
 export const Footer = () => {
-  // Generate bubbles
   const bubbles = Array.from({ length: 128 }, (_, i) => {
     const size = 2 + Math.random() * 4;
     const distance = 6 + Math.random() * 4;

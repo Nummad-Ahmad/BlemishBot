@@ -155,7 +155,7 @@ export default function Chat() {
 
         try {
             const loadingToast = toast.loading("Uploading image...");
-            const response = await axios.post("http://localhost:5000/predict", formData);
+            const response = await axios.post("http://localhost:8000/predict", formData);
 
             const classification = response.data.classification[0].label
             setResult(response.data.classification[0].label);
@@ -197,7 +197,7 @@ export default function Chat() {
                 formData.append("causes", cystsCauses);
             }
 
-            const uploadResponse = await axios.post("https://blemishbotbackend.vercel.app/upload", formData);
+            const uploadResponse = await axios.post("https://Blemishbotbackend.vercel.app/Upload", formData);
 
             if (uploadResponse.data.success) {
                 toast.dismiss(loadingToast);

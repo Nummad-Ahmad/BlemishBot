@@ -21,6 +21,7 @@ import Footer from './footerComponent';
 import video from '../images/acneVideo.mp4';
 import { CiCircleCheck } from 'react-icons/ci';
 import Cookies from 'js-cookie';
+import HeroImage from '../images/acneherosection.png';
 
 export default function HomePage() {
     const [isAnimated, setIsAnimated] = useState(false);
@@ -73,7 +74,7 @@ export default function HomePage() {
                             your acne type to get started.
                         </p>
                     </div>
-                    <img className={`${style.img} ${isAnimated1 ? style.animateImg : ''}`} src={ModelImage}></img>
+                    <img className={`${style.img} ${isAnimated1 ? style.animateImg : ''}`} src={HeroImage}></img>
                 </div>
                 <div onClick={() => navigationFunction()} className={style.chat}>
                     <BsChatDots size={20} color='white' />

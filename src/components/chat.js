@@ -155,7 +155,7 @@ export default function Chat() {
 
         try {
             const loadingToast = toast.loading("Uploading image...");
-            const response = await axios.post("http://localhost:5000/predict", formData);
+            const response = await axios.post("http://localhost:8000/predict", formData);
 
             const classification = response.data.classification[0].label
             setResult(response.data.classification[0].label);

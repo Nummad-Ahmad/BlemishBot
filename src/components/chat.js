@@ -200,7 +200,7 @@ export default function Chat() {
                 formData.append("causes", cystsCauses);
             }
 
-            const uploadResponse = await axios.post("https://blemishbotbackend.vercel.app/upload", formData);
+            const uploadResponse = await axios.post("https://Blemishbotbackend.vercel.app/Upload", formData);
 
             if (uploadResponse.data.success) {
                 toast.dismiss(loadingToast);

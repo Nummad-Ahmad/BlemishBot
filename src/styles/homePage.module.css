@@ -215,7 +215,7 @@
 .lightbluecontainer{
     margin-top: 30px;
     width: 100%;
-    background-color: #0073e6;
+    background-color: rgb(61, 82, 163);
     display: flex;
     flex-direction: column;
     gap: 50px;

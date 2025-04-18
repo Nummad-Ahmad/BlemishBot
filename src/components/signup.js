@@ -7,6 +7,9 @@ import styles from '../styles/signup.module.css'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggle } from '../redux/slice';
+
 const Signup = () => {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -47,6 +50,16 @@ const Signup = () => {
       toast.error('Fill all fields');
     }
   }
+  const dispatch = useDispatch();
+  const checked = useSelector(state => state.check.value);
+  function cancel(){
+    setIsChecked(false);
+    dispatch(toggle());
+  }
+  function accept(){
+    setIsChecked(true);
+    dispatch(toggle());
+  }
   return (
     <div className={styles.main}>
       <div className={styles.WelcomeContainer}>
@@ -71,15 +84,16 @@ const Signup = () => {
             <input type="email" value={email} className={styles.input} onChange={(e) => setemail(e.target.value)} placeholder="Email Address" />
             <input type="password" value={password} className={styles.input} onChange={(e) => setpass(e.target.value)} placeholder="Password" />
             <input type="password" value={confirmPass} className={styles.input} onChange={(e) => setConfirmPass(e.target.value)} placeholder="Confirm password" />
-            <label>
+            <div>
               <input
+                style={{ display: 'inline-block' }}
                 type="checkbox"
                 checked={isChecked}
                 onChange={handleCheckboxChange}
               />
               <p
-                style={{ marginLeft: '10px', display: 'inline' }}>Accept terms of service and privacy policy.</p>
-            </label>
+                style={{ marginLeft: '10px', display: 'inline-block' }}>Accept terms of service and <span onClick={() => dispatch(toggle())} style={{ textDecoration: 'underline', cursor: 'pointer' }}>privacy policy</span>.</p>
+            </div>
             <button className={styles.signupButton} onClick={handleSignup}>{loading ? 'Registering ...' : 'Sign Up'}</button>
           </div>
         </div>
@@ -87,9 +101,9 @@ const Signup = () => {
         <div className={styles.thirdpartysignup}>
           <h4 className={styles.LineText} style={{ fontSize: "18px" }}>Or Sign Up With</h4>
           <div className={styles.icons}>
-          <a href="https://blemishbotbackend.vercel.app/auth/google">
-                <img src={google} height={50} alt="Google login" />
-              </a>
+            <a href="https://blemishbotbackend.vercel.app/auth/google">
+              <img src={google} height={50} alt="Google login" />
+            </a>
           </div>
           <p style={{ color: "grey", textAlign: "center", fontSize: '16px' }}>
             Already have an account?{" "}
@@ -99,7 +113,18 @@ const Signup = () => {
           </p>
         </div>
       </div>
-
+      {
+        checked &&
+        <div className={styles.verificationOverlay}>
+          <div className={styles.verificationContainer}>
+          Your privacy is important to us. When you use our web application, we collect only the necessary data to provide you with accurate acne detection and personalized recommendations. This includes your login information and images you voluntarily upload for analysis. All images are processed securely and are not shared with third parties. We do not store your images after the analysis is complete. Any recommendations or home remedies provided are based solely on the results of your image analysis. By using our service, you consent to this data usage as described
+            <div style={{ display: 'flex', width: '100%', gap: '50px', margin: '20px 0px', justifyContent: 'center' }}>
+              <button className={styles.cancelBtn} onClick={() => cancel()}>Cancel</button>
+              <button className={styles.proceedBtn} onClick={()=> accept()}>Accept</button>
+            </div>
+          </div>
+        </div>
+      }
     </div>
   )
 }

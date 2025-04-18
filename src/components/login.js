@@ -102,7 +102,7 @@ const Login = () => {
                 className={styles.input}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Username or Email Address"
+                placeholder="Email Address"
               />
               <input
                 type="password"

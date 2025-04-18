@@ -78,7 +78,7 @@ export default function () {
                 {
                     index != 6 ?
                         <button className={style.chatbtn} onClick={() => { updateIndex(6); navigationFunction(); }}>
-                            Chat
+                            Upload
                         </button> :
                         <>
                             <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
@@ -161,7 +161,7 @@ export default function () {
                                 </div> :
                                 <div style={{ borderBottom: '1px solid black', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={() => navigationFunction()}>
                                     <BsChatDots size={20} color='black' />
-                                    <li><a>Chat</a></li>
+                                    <li><a>Upload</a></li>
                                 </div>
                         }
                     </ul>

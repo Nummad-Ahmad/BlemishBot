@@ -8,8 +8,12 @@ import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggle } from '../redux/slice';
 import { useNavigate } from 'react-router-dom';
+import { RiFirstAidKitLine } from "react-icons/ri";//remedies
+import { FaShieldAlt } from "react-icons/fa";//prevention
+import { RiVirusLine } from "react-icons/ri";//causes
 
 export default function Chat() {
+    const [active, setActive] = useState(0);
     const navigate = useNavigate();
     const checked = useSelector(state => state.check.value);
     const dispatch = useDispatch();
@@ -416,6 +420,20 @@ export default function Chat() {
                                         <img src={selectedImage} height={220} width={200}></img>
                                     </div>
                                 </div>
+                                {/* <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', fontSize: '20px', fontWeight: 'bold' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                                        <RiFirstAidKitLine size={20} />
+                                        Remedies
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                                        <FaShieldAlt size={20} />
+                                        Preventions
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '20px', }}>
+                                        <RiVirusLine size={20} />
+                                        Causes
+                                    </div>
+                                </div> */}
 
                                 <p className={style.heading}>Common causes</p>
                                 {

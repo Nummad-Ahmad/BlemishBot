@@ -374,8 +374,6 @@ export default function Chat() {
                     {
                         !selectedImage ?
                             <div className={style.uploadImageContainer}>
-
-
                                 {
                                     !selectedImage &&
                                     <label htmlFor="file-input" className={style.customFileInput}>

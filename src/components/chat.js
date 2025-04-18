@@ -5,8 +5,14 @@ import { useEffect, useState } from 'react';
 import { IoMdCloudUpload } from "react-icons/io";
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggle } from '../redux/slice';
+import { useNavigate } from 'react-router-dom';
 
 export default function Chat() {
+    const navigate = useNavigate();
+    const checked = useSelector(state => state.check.value);
+    const dispatch = useDispatch();
     const urlParams = new URLSearchParams(window.location.search);
     const email = Cookies.get('email') || urlParams.get('email');
     const blackHeadsText = "Black heads are a mild type of acne that form when pores become clogged with oil and dead skin cells. Unlike other acne types, blackheads are open at the surface, giving them their characteristic dark appearance. They are common and typically painless but can persist without proper skincare.";
@@ -144,7 +150,7 @@ export default function Chat() {
 
     const handleImageChange = async (event) => {
         const file = event.target.files[0];
-        const maxSizeInBytes = 2097152; 
+        const maxSizeInBytes = 2097152;
         if (!file) return;
         if (file.size > maxSizeInBytes) {
             toast.error("Image size should be less than 2MB");
@@ -205,7 +211,7 @@ export default function Chat() {
                 toast.success("Image uploaded successfully!");
                 switch (classification) {
                     case "Blackhead": {
-                        updateText(blackHeadsText); 
+                        updateText(blackHeadsText);
                         break;
                     }
                     case "Whitehead": {
@@ -232,7 +238,7 @@ export default function Chat() {
             } else {
                 toast.dismiss(loadingToast);
                 toast.error("Image upload failed!");
-            } 
+            }
         } catch (error) {
             toast.dismiss();
             toast.error("An error occurred!");
@@ -311,6 +317,25 @@ export default function Chat() {
         const tempDate = new Date(itemDate);
         const formattedDate = tempDate.toLocaleDateString("en-GB");
         return formattedDate;
+    }
+    function deactivate() {
+        dispatch(toggle())
+        const loadingToast = toast.loading("Deactivating ...");
+        axios.post('https://blemishbotbackend.vercel.app/deactivate', { email }).
+            then((res) => {
+                console.log(res)
+                toast.dismiss(loadingToast);
+                toast.success("Deactivated successfully");
+                localStorage.setItem("storedValue", 0);
+                Cookies.remove('email', { path: '/' });
+                navigate('/', { replace: true });
+            }
+            ).
+            catch(e => {
+                toast.dismiss(loadingToast);
+                console.log(e);
+                toast.error("An error occured");
+            });
     }
     return (
         <div className={style.chat}>
@@ -444,6 +469,18 @@ export default function Chat() {
 
                 </div>
             </div>
+            {
+                checked &&
+                <div className={style.verificationOverlay}>
+                    <div className={style.verificationContainer}>
+                        Are you sure you want to deactivate your account?
+                        <div style={{ display: 'flex', width: '100%', gap: '50px', margin: '20px 0px', justifyContent: 'center' }}>
+                            <button className={style.cancelBtn} onClick={() => dispatch(toggle())}>No</button>
+                            <button className={style.proceedBtn} onClick={() => deactivate()}>Yes</button>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     );
 }

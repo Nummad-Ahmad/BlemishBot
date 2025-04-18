@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggle } from '../redux/slice';
 import { useNavigate } from 'react-router-dom';
+import UploadImg from '../images/uploadimg.png';
 import { RiFirstAidKitLine } from "react-icons/ri";//remedies
 import { FaShieldAlt } from "react-icons/fa";//prevention
 import { RiVirusLine } from "react-icons/ri";//causes
